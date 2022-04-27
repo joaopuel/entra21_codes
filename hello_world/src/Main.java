@@ -15,9 +15,10 @@ public class Main {
     public static void main(String[] args) {
         var1 = var1 + 5;
         ++var1;
-        System.out.println(var1);
+        System.out.println(var1); //Pode ser utilizado "Ctrl+espaço" e "sout"
         System.out.println(++var1);
     }
+    //Pode ser utilizado "Ctrl+espaço" e escrever "psvm"
 
     /*
     public = pode ser acessada de qualquer lugar do programa
