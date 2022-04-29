@@ -11,8 +11,8 @@ public class Exerc_19 {
         System.out.print("Altura: ");
         double altura = sc.nextDouble();
         System.out.print("Sexo: ");
-        Scanner sc1 = new Scanner(System.in);
-        String sexo = sc1.nextLine();
+        sc.nextLine();
+        String sexo = sc.nextLine();
 
         if(sexo.equals("M"))
         {

@@ -18,8 +18,8 @@ public class Exerc_1 {
         System.out.print(" e ");
         System.out.println("B=" + B + "\n");
 
-        String C="10";
-        String D="20";
+        String C ="10";
+        String D ="20";
 
         System.out.print("C=" + C);
         System.out.print(" e ");
