@@ -1,8 +1,6 @@
 package Exercicios_Aula;
 
-import javax.xml.stream.util.XMLEventAllocator;
 import java.util.Scanner;
-import java.io.*;
 
 public class Batalha_naval {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -15,27 +13,22 @@ public class Batalha_naval {
         Scanner sc = new Scanner(System.in);
 
         int[][] mapa = {
-                {1,0,0,0,0,0,0,0},
-                {1,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0},
-                {0,0,0,0,0,0,0,0},
+                {1,0,0,0,0,0,0,1},
+                {1,0,0,0,1,1,0,1},
+                {0,1,0,0,0,0,0,0},
+                {0,1,0,0,1,1,1,1},
+                {0,1,0,0,0,0,0,0},
+                {0,0,0,0,0,1,1,0},
                 {0,1,1,0,0,0,0,0},
-                {0,0,0,0,0,0,0,1},
+                {0,0,0,0,0,1,1,1},
         };
 
         int[][] mapa_original = new int[8][8];
 
-        for(int i=0; i<8; i++)
+        for(int i=0; i<mapa.length; i++)
         {
-            for(int j=0; j<8; j++)
-            {
-                mapa_original[i][j]=mapa[i][j];
-            }
+            System.arraycopy(mapa[i], 0, mapa_original[i], 0, mapa[i].length);
         }
-
-
 
         while(true) {
 
@@ -61,7 +54,7 @@ public class Batalha_naval {
             col_letra = col_letra.toUpperCase();
             int col = col_letra.charAt(0);
 
-            if(col_letra.equals("Parar"))
+            if(col_letra.equals("PARAR"))
             {
                 break;
             }
