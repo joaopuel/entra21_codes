@@ -2,7 +2,8 @@ package Exercicios_Aula;
 
 import java.util.Scanner;
 
-public class Batalha_naval {
+public class Campo_Minado{
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -34,7 +35,7 @@ public class Batalha_naval {
 
             mostrar_mapa(mapa, mapa_original);
 
-            System.out.print("Escreva 'Parar' para encerrar o jogo a qualquer momento. \nBombardear \nLinha: ");
+            System.out.print("Escreva 'Parar' para encerrar o jogo a qualquer momento. \nLinha: ");
             String lin_letra = sc.nextLine();
             int lin = lin_letra.charAt(0);
 
@@ -65,14 +66,7 @@ public class Batalha_naval {
                 continue;
             }
 
-            if (mapa[lin - 49][col - 65] == 1) {
-                System.out.println("\nVocê acertou o alvo!");
-                mapa[lin - 49][col - 65] = 0;
-            } else {
-                System.out.println("\nBomba afundou no mar");
-                mapa[lin - 49][col - 65] = 2;
-                mapa_original[lin - 49][col - 65] = 2;
-            }
+            mapa = checa_tabuleiro(lin, col, mapa);
 
             boolean fim = fim_do_jogo (mapa);
 
@@ -118,16 +112,16 @@ public class Batalha_naval {
 
             for(int j=0; j<8; j++)
             {
-               if(mapa[i][j] != mapa_original[i][j])
+                if(mapa[i][j] != mapa_original[i][j])
                 {
                     System.out.print(ANSI_GREEN + "O\t" + ANSI_RESET);
                     continue;
                 }
-               if(mapa[i][j]==2)
-               {
-                   System.out.print(ANSI_RED + "X\t" + ANSI_RESET);
-                   continue;
-               }
+                if(mapa[i][j]==2)
+                {
+                    System.out.print(ANSI_RED + "X\t" + ANSI_RESET);
+                    continue;
+                }
                 System.out.print("□\t");
             }
             System.out.println();
@@ -136,5 +130,15 @@ public class Batalha_naval {
         System.out.println();
     }
 
-
+    public static int[][] checa_tabuleiro(int lin, int col, int[][] mapa)
+    {
+        if (mapa[lin - 49][col - 65] == 1) {
+            System.out.println("\nVocê acertou o alvo!");
+            mapa[lin - 49][col - 65] = 0;
+        } else {
+            System.out.println("\nBomba afundou no mar");
+            mapa[lin - 49][col - 65] = 2;
+            mapa_original[lin - 49][col - 65] = 2;
+        }
+    }
 }
