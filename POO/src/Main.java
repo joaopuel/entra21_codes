@@ -1,7 +1,4 @@
-import classes.HotDog;
-import classes.MistoQuente;
-import classes.XBurger;
-import classes.XSalada;
+import classes.*;
 
 import java.util.Scanner;
 
@@ -20,53 +17,54 @@ public class Main {
         System.out.println("(2) - X-Burguer");
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
+        System.out.println("(5) - Mini Pizza - Calabresa");
         int escolha = sc.nextInt();
-
+        Lanche lanche = null;
         switch (escolha){
             case 1:
-                XSalada lanche =  new XSalada();
-
-                System.out.print("Informe o valor do XSalada: R$");
-                lanche.valor = sc.nextDouble();
-
-                System.out.print("Lanche aberto? (S/N)");
-                sc.nextLine();
-                String aberto = sc.next();
-                lanche.aberto = aberto.equalsIgnoreCase("S");
-
-                lanche.montarComanda();
+                lanche =  new XSalada();
                 break;
             case 2:
-                XBurger lanche2 =  new XBurger();
-
-                System.out.print("Informe o valor do XBurguer: R$");
-                lanche2.valor = sc.nextDouble();
-
-                System.out.print("Lanche aberto? (S/N)");
-                sc.nextLine();
-                String aberto2 = sc.next();
-                lanche2.aberto = aberto2.equalsIgnoreCase("S");
-
-                lanche2.montarComanda();
+                lanche =  new XBurger();
                 break;
             case 3:
-                MistoQuente lanche3 =  new MistoQuente();
-
-                System.out.print("Informe o valor do Misto Quente: R$");
-                lanche3.valor = sc.nextDouble();
-
-                lanche3.montarComanda();
+                lanche =  new MistoQuente();
                 break;
             case 4:
-                HotDog lanche4 =  new HotDog();
-
-                System.out.print("Informe o valor do Hot Dog: R$");
-                lanche4.valor = sc.nextDouble();
-
-                lanche4.montarComanda();
+                lanche =  new HotDog();
+                break;
+            case 5:
+                lanche = new MiniPizza();
                 break;
             default:
                 System.err.println("Escolha uma opção válida!");
         }
+
+        if(escolha==1 || escolha==2)
+        {
+            System.out.print("Lanche aberto? (S/N)");
+            sc.nextLine();
+            String aberto = sc.next();
+            ((XBurger)lanche).aberto = aberto.equalsIgnoreCase("S");
+        }
+        if(escolha == 5)
+        {
+            System.out.print("Borda recheada? (S/N)");
+            sc.nextLine();
+            String recheada = sc.next();
+            MiniPizza miniPizza = ((MiniPizza)lanche);
+            miniPizza.bordaRecheada = recheada.equalsIgnoreCase("S");
+            if(miniPizza.bordaRecheada)
+            {
+                System.out.print("Sabor da borda: ");
+                sc.nextLine();
+                miniPizza.saborBorda = sc.next();
+            }
+        }
+
+        System.out.print("Informe o valor do(a) " + lanche.tipo + ": R$");
+        lanche.valor = sc.nextDouble();
+
+        lanche.montarComanda();
     }
 }
