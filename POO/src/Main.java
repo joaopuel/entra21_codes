@@ -18,47 +18,67 @@ public class Main {
         System.out.println("(3) - Misto Quente");
         System.out.println("(4) - Hot Dog");
         System.out.println("(5) - Mini Pizza - Calabresa");
-        int escolha = sc.nextInt();
         Lanche lanche = null;
-        switch (escolha){
-            case 1:
-                lanche =  new XSalada();
-                break;
-            case 2:
-                lanche =  new XBurger();
-                break;
-            case 3:
-                lanche =  new MistoQuente();
-                break;
-            case 4:
-                lanche =  new HotDog();
-                break;
-            case 5:
-                lanche = new MiniPizza();
-                break;
-            default:
-                System.err.println("Escolha uma opção válida!");
-        }
+        int escolha=0;
 
-        if(escolha==1 || escolha==2)
-        {
-            System.out.print("Lanche aberto? (S/N)");
+        while(lanche == null) {
+            escolha = sc.nextInt();
             sc.nextLine();
-            String aberto = sc.next();
-            ((XBurger)lanche).aberto = aberto.equalsIgnoreCase("S");
+            switch (escolha) {
+                case 1:
+                    lanche = new XSalada();
+                    break;
+                case 2:
+                    lanche = new XBurger();
+                    break;
+                case 3:
+                    lanche = new MistoQuente();
+                    break;
+                case 4:
+                    lanche = new HotDog();
+                    break;
+                case 5:
+                    lanche = new MiniPizza();
+                    break;
+                default:
+                    System.err.println("Escolha uma opção válida!");
+            }
         }
-        if(escolha == 5)
+        if(lanche instanceof Sanduiche){
+            System.out.print("Deseja adicionais? (S/N)");
+            String adicional = sc.nextLine();
+            if(adicional.equalsIgnoreCase("S")){
+                System.out.println("Escreva \"parar\" quando não quiser mais adicionais.");
+                for(int i=0; i<10; i++) {
+                    System.out.println("Insira adicional: ");
+                    adicional = sc.nextLine();
+                    if(adicional.equalsIgnoreCase("parar")){
+                        break;
+                    }
+                    ((Sanduiche)lanche).adicionarAdicionais(adicional);
+                    if(i==9){
+                        System.out.println("Não é possível acrescentar mais adicionais.");
+                    }
+                }
+            }
+
+            if(lanche instanceof XBurger)
+            {
+                System.out.print("Lanche aberto? (S/N)");
+                String aberto = sc.nextLine();
+                ((XBurger)lanche).aberto = aberto.equalsIgnoreCase("S");
+            }
+        }
+        else
         {
             System.out.print("Borda recheada? (S/N)");
-            sc.nextLine();
-            String recheada = sc.next();
+            String recheada = sc.nextLine();
             MiniPizza miniPizza = ((MiniPizza)lanche);
             miniPizza.bordaRecheada = recheada.equalsIgnoreCase("S");
             if(miniPizza.bordaRecheada)
             {
                 System.out.print("Sabor da borda: ");
-                sc.nextLine();
-                miniPizza.saborBorda = sc.next();
+                miniPizza.saborBorda = sc.nextLine();
             }
         }
 

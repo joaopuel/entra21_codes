@@ -12,7 +12,6 @@ public abstract class Lanche {
             }
         }
     }
-
     public void montarComanda(){
         System.out.println("==" + this.tipo + "==");
 
@@ -22,7 +21,7 @@ public abstract class Lanche {
         */
 
         System.out.printf("Valor: R$%.2f\n", this.valor);
-        System.out.println("-INGREDIENTES-");
+        System.out.println("--INGREDIENTES--");
         for(String ingrediente : this.ingredientes){
             if(ingrediente != null){
                 System.out.println(ingrediente);
