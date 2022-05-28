@@ -19,7 +19,7 @@ public class Main {
         System.out.println("(4) - Hot Dog");
         System.out.println("(5) - Mini Pizza - Calabresa");
         Lanche lanche = null;
-        int escolha=0;
+        int escolha;
 
         while(lanche == null) {
             escolha = sc.nextInt();
