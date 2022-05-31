@@ -5,6 +5,6 @@ public class MistoQuente extends Sanduiche{
         this.adicionarIngredientes("Pão");
         this.adicionarIngredientes("Queijunto");
         this.adicionarIngredientes("Preijo");
-        this.tipo = "Misto Quente";
+        this.setTipo("Misto Quente");
     }
 }
