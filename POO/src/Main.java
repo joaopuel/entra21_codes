@@ -1,9 +1,19 @@
-import classes.*;
+import classes.lanches.*;
 
 import java.util.Scanner;
 
 public class Main {
+
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
+        while(true) {
+            montarLanche();
+        }
+    }
+
+    private static void montarLanche(){
 
         /* PARA VERIFICAR A CLASSE OU TIPO DA VARIÀVEL
         int x = 0;
@@ -11,7 +21,6 @@ public class Main {
         System.out.println(((Object)x).getClass().getSimpleName()); PARA DADOS DE TIPO PRIMITIVO
         System.out.println(sla.getClass().getSimpleName());*/
 
-        Scanner sc = new Scanner(System.in);
         System.out.println("- MENU -");
         System.out.println("(1) - X-Salada");
         System.out.println("(2) - X-Burguer");
@@ -123,6 +132,8 @@ public class Main {
         System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
         lanche.setValor(sc.nextDouble());
 
+        System.out.println("\n" + ANSI_YELLOW);
         lanche.montarComanda();
+        System.out.println("\n"+ ANSI_RESET);
     }
 }

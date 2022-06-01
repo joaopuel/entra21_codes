@@ -1,4 +1,4 @@
-package classes;
+package classes.lanches;
 
 public class XBurger extends Sanduiche{
     private boolean aberto;
