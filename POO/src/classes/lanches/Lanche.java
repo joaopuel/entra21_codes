@@ -1,7 +1,7 @@
 package classes.lanches;
 
 public abstract class Lanche {
-    private String[] ingredientes = new String[10];
+    private final String[] ingredientes = new String[10];
     private double valor;
     private String tipo;
     public void adicionarIngredientes(String ingrediente){
@@ -11,26 +11,6 @@ public abstract class Lanche {
                 break;
             }
         }
-    }
-    public void montarComanda(){
-        if(this instanceof  MiniPizza){
-            System.out.println("==" + this.getTipo() + " - " + ((MiniPizza)this).getSabor() + "==");
-        }else {
-            System.out.println("==" + this.getTipo() + "==");
-        }
-        /*OUTRA FORMA DE PRINTAR OS NOMES DOS LANCHES
-        String classes = this.getClass().getName();
-        System.out.println("==" + (classes).replace("classes.", "") + "==");
-        */
-
-        System.out.printf("Valor: R$%.2f\n", this.getValor());
-        System.out.println("--INGREDIENTES--");
-        for(String ingrediente : this.ingredientes){
-            if(ingrediente != null){
-                System.out.println(ingrediente);
-            }
-        }
-        System.out.println("------------");
     }
 
     public void setValor(double valor){
@@ -47,5 +27,9 @@ public abstract class Lanche {
 
     public String getTipo(){
         return this.tipo;
+    }
+
+    public String[] getIngredientes() {
+        return this.ingredientes;
     }
 }

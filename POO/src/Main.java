@@ -131,9 +131,5 @@ public class Main {
 
         System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
         lanche.setValor(sc.nextDouble());
-
-        System.out.println("\n" + ANSI_YELLOW);
-        lanche.montarComanda();
-        System.out.println("\n"+ ANSI_RESET);
     }
 }
