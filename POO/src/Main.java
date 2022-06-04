@@ -1,19 +1,37 @@
+import classes.cliente.Cliente;
 import classes.lanches.*;
 
 import java.util.Scanner;
 
 public class Main {
-
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
     public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         while(true) {
-            montarLanche();
+            Cliente cliente = new Cliente();
+            System.out.println("Insira o nome do cliente: ");
+            cliente.setNome(sc.nextLine());
+
+            for(int i = 0; i<10; i++) {
+                cliente.getPedido().adicionarLanche(montarLanche());
+                if (i==9){
+                    break;
+                }
+                System.out.println("Deseja mais um lanche? (S/N)");
+                if(sc.nextLine().equalsIgnoreCase("N")) {
+                    break;
+                }
+            }
+            System.out.println("Cliente: " + cliente.getNome());
+            cliente.getPedido().imprimirComanda();
+
+            System.out.print("Há um novo cliente? (S/N)");
+            if (sc.nextLine().equalsIgnoreCase("N")) {
+                break;
+            }
         }
     }
 
-    private static void montarLanche(){
+    private static Lanche montarLanche(){
 
         /* PARA VERIFICAR A CLASSE OU TIPO DA VARIÀVEL
         int x = 0;
@@ -131,5 +149,7 @@ public class Main {
 
         System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
         lanche.setValor(sc.nextDouble());
+        sc.nextLine();
+        return lanche;
     }
 }

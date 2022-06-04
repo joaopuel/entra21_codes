@@ -49,11 +49,13 @@ public class Pedido {
                             }
                         }
                         System.out.println("------------");
-                        System.out.printf("Valor: R$%.2f\n", lanche.getValor());
                     }
                 }
+                System.out.printf("Valor: R$%.2f\n", lanche.getValor());
             }
         }
+        System.out.println("##############\nTOTAL: R$" + calcularValorTotal());
+        System.out.println("##############\n");
     }
     public double calcularValorTotal(){
         double total = 0;

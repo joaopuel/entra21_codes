@@ -9,6 +9,7 @@ public class Tarefa {
     private String nome, descricao;
     private boolean completa;
     private int ordem;
+    private ChecklistItem[] checklistItems;
 
     //CONSTRUTOR
     public Tarefa(){
@@ -59,5 +60,13 @@ public class Tarefa {
 
     public String getUuid() {
         return this.uuid;
+    }
+
+    public ChecklistItem[] getChecklistItems() {
+        return this.checklistItems;
+    }
+
+    public void setChecklistItems(ChecklistItem[] checklistItems) {
+        this.checklistItems = checklistItems;
     }
 }
