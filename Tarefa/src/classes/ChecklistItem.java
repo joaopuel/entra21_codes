@@ -7,7 +7,6 @@ public class ChecklistItem {
     //ATRIBUTOS
     private String uuid, nome, descricao;
     private boolean completa;
-    private int ordem;
 
     //MÉTODOS
     public void completar(){
@@ -50,13 +49,5 @@ public class ChecklistItem {
 
     public void setCompleta(boolean completa) {
         this.completa = completa;
-    }
-
-    public int getOrdem() {
-        return this.ordem;
-    }
-
-    public void setOrdem(int ordem) {
-        this.ordem = ordem;
     }
 }

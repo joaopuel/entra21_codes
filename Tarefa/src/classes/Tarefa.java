@@ -19,6 +19,29 @@ public class Tarefa {
     //MÉTODOS
     public void completar(){
         setCompleta(true);
+        for(ChecklistItem item : this.getChecklistItems()){
+            if(item!=null){
+                item.completar();
+            }
+        }
+    }
+
+    public boolean temChecklist(){
+        return this.getChecklistItems() != null;
+    }
+
+    public void criarChecklist(int tamanho){
+        this.setChecklistItems(new ChecklistItem[tamanho]);
+    }
+
+    public boolean adicionarChecklist(ChecklistItem item){
+        for (int i = 0; i < this.getChecklistItems().length; i++) {
+            if (this.getChecklistItems()[i] == null) {
+                this.getChecklistItems()[i] = item;
+                return true;
+            }
+        }
+        return false;
     }
 
     //GETTER & SETTER

@@ -9,24 +9,68 @@ public class ListaTarefas {
 
     //CONSTRUTOR
     public ListaTarefas(int tamanhoLista){
-        this.tamanhoLista = tamanhoLista;
+        this.setTarefas(new Tarefa[tamanhoLista]);
+        this.setTamanhoLista(tamanhoLista);
     }
 
     //MÉTODOS
     public boolean adicionarTarefa(Tarefa tarefa){
-          //todo
+        if(tarefa.getOrdem() < this.getTamanhoLista() && tarefa.getOrdem() > 0) {
+            for (int i = 0; i < this.getTamanhoLista(); i++) {
+                if (this.getTarefas()[i] == null) {
+                    this.getTarefas()[i] = tarefa;
+                    return true;
+                } else if (tarefa.getOrdem() == this.getTarefas()[i].getOrdem()){
+                    break;
+                }
+            }
+        }
         return false;
     }
 
-    public Tarefa buscarTarefa(int posicao){
-        //todo
+    public Tarefa buscarTarefa(int ordem){
+        for(Tarefa tarefa : this.getTarefas()){
+            if(tarefa != null && tarefa.getOrdem() == ordem){
+                return tarefa;
+            }
+        }
         return null;
     }
 
-    public boolean alterarOrdemTarefa(Tarefa tarefa, int novaPosicao){
-        //todo
-        return false;
+    public boolean alterarOrdemTarefa(int antigaOrdem, int novaOrdem){
+        Tarefa tarefaAntiga = buscarTarefa(antigaOrdem);
+        Tarefa novaTarefa = buscarTarefa(novaOrdem);
+        if(tarefaAntiga == null || novaTarefa == null){
+            return false;
+        }
+        tarefaAntiga.setOrdem(novaOrdem);
+        novaTarefa.setOrdem(antigaOrdem);
+        return true;
     }
+
+    /*Dps
+    public boolean alterarOrdemOutroJeito(int antigaOrdem, int novaOrdem){
+        Tarefa tarefaAntiga = buscarTarefa(antigaOrdem);
+        Tarefa novaTarefa = buscarTarefa(novaOrdem);
+
+        if(tarefaAntiga == null || novaTarefa == null){
+            return false;
+        }
+
+        String uuid = "";
+
+        for(int i=0; i<this.getTamanhoLista(); i++)
+        {
+            Tarefa tarefa = buscarTarefa(i);
+            if(uuid.equals(tarefa.getUuid())){
+                continue;
+            }
+            tarefa.setOrdem();
+            nome = tarefa.getNome();
+        }
+
+        return true;
+    }*/
 
     //GETTER & SETTER
 
