@@ -1,4 +1,4 @@
-package classes;
+package classes.avaliacao;
 
 public class Avaliacao {
 

@@ -1,4 +1,4 @@
-package classes;
+package classes.itens;
 
 public class Livro extends Item{
 

@@ -1,4 +1,6 @@
-package classes;
+package classes.itens;
+
+import classes.avaliacao.Avaliacao;
 
 import java.util.Scanner;
 
