@@ -20,7 +20,7 @@ public abstract class Item {
         System.out.print("Informe uma nota de 0 a 10: ");
         avaliacao.setRating(in.nextDouble());
         in.nextLine();
-        System.out.print("Informe algum feedback(opcional)");
+        System.out.print("Informe algum feedback(opcional): ");
         avaliacao.setFeedback(in.nextLine());
 
         for(int i = 0; i < this.getAvaliacoes().length; i++){
