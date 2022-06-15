@@ -2,8 +2,6 @@ package classes.guardados;
 
 import classes.itens.Item;
 
-import java.util.Locale;
-
 public class Estante {
 
     //Atributos

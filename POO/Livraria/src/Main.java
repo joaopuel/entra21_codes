@@ -1,4 +1,4 @@
-import classes.avaliacao.Avaliacao;
+import classes.avaliacao.*;
 import classes.guardados.*;
 import classes.itens.*;
 import java.util.Scanner;
@@ -54,13 +54,13 @@ public class Main {
             while(true) {
                 System.out.println("Posição: ");
                 posicao = in.nextInt();
+                in.nextLine();
                 if(posicao >= 0 && posicao < estante.getCapMaxima()){
                     break;
                 }
                 System.err.println("Insira uma posição válida!");
             }
             Item item = estante.removerItem(posicao);
-            in.nextLine();
             if(item == null){
                 System.err.println("Não existe um item nessa posição!");
             }else{
