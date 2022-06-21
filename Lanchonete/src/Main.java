@@ -11,11 +11,8 @@ public class Main {
             System.out.println("Insira o nome do cliente: ");
             cliente.setNome(sc.nextLine());
 
-            for(int i = 0; i<10; i++) {
+            while(true) {
                 cliente.getPedido().adicionarLanche(montarLanche());
-                if (i==9){
-                    break;
-                }
                 System.out.println("Deseja mais um lanche? (S/N)");
                 if(sc.nextLine().equalsIgnoreCase("N")) {
                     break;
@@ -75,78 +72,7 @@ public class Main {
                     System.err.println("Escolha uma opção válida!");
             }
         }
-        if (lanche instanceof Sanduiche) {
-            System.out.print("Deseja adicionais? (S/N)");
-            String adicional = sc.nextLine();
-            if (adicional.equalsIgnoreCase("S")) {
-                System.out.println("Escreva \"parar\" quando não quiser mais adicionais.");
-                for (int i = 0; i < 10; i++) {
-                    System.out.println("Insira adicional: ");
-                    adicional = sc.nextLine();
-                    if (adicional.equalsIgnoreCase("parar")) {
-                        break;
-                    }
-                    ((Sanduiche) lanche).adicionarAdicionais(adicional);
-                    if (i == 9) {
-                        System.out.println("Não é possível acrescentar mais adicionais.");
-                    }
-                }
-            }
-
-            if (lanche instanceof XBurger) {
-                System.out.print("Lanche aberto? (S/N)");
-                String aberto = sc.nextLine();
-                ((XBurger) lanche).setAberto(aberto.equalsIgnoreCase("S"));
-            }
-        } else {
-            System.out.println("Escolha o sabor:");
-            System.out.println("(1) - 4 Queijos");
-            System.out.println("(2) - Calabresa");
-            System.out.println("(3) - Frango c/ catupiry");
-            System.out.println("(4) - Marguerita");
-            System.out.println("(5) - Portuguesa");
-            int sabor = sc.nextInt();
-            sc.nextLine();
-            MiniPizza miniPizza = ((MiniPizza) lanche);
-            switch (sabor) {
-                case 1:
-                    miniPizza.adicionarSaborEIngredientes("4 Queijos");
-                    break;
-                case 2:
-                    miniPizza.adicionarSaborEIngredientes("Calabresa");
-                    break;
-                case 3:
-                    miniPizza.adicionarSaborEIngredientes("Frango c/ catupiry");
-                    break;
-                case 4:
-                    miniPizza.adicionarSaborEIngredientes("Marguerita");
-                    break;
-                case 5:
-                    miniPizza.adicionarSaborEIngredientes("Portuguesa");
-                    break;
-                default:
-                    System.err.println("Escolha um sabor válido");
-            }
-
-            if(lanche instanceof Pizza)
-            {
-                System.out.println("Informe o tamanho da pizza");
-                System.out.println("XS - broto");
-                System.out.println("SM - pequena");
-                System.out.println("MD - média");
-                System.out.println("LG - grande");
-                System.out.println("XL - família");
-                ((Pizza) lanche).setTamanhoPizza(sc.nextLine().toUpperCase());
-            }
-            System.out.print("Borda recheada? (S/N)");
-            String recheada = sc.nextLine();
-            miniPizza.setBordaRecheada(recheada.equalsIgnoreCase("S"));
-            if (miniPizza.isBordaRecheada()) {
-                System.out.print("Sabor da borda: ");
-                miniPizza.setSaborBorda(sc.nextLine());
-            }
-        }
-
+        lanche.mostrarDetalhesLanche(sc);
         System.out.print("Informe o valor do(a) " + lanche.getTipo() + ": R$");
         lanche.setValor(sc.nextDouble());
         sc.nextLine();
