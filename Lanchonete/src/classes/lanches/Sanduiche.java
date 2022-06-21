@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public abstract class Sanduiche extends Lanche{
     //Atributos
-    private ArrayList<String> adicionais = new ArrayList<>();
+    private final ArrayList<String> adicionais = new ArrayList<>();
 
     //Métodos
     public void adicionarAdicionais(String adicional){
@@ -36,6 +36,7 @@ public abstract class Sanduiche extends Lanche{
                 if (adicional.equalsIgnoreCase("parar")) {
                     break;
                 }
+                this.adicionarAdicionais(adicional);
                 if (i == 9) {
                     System.out.println("Não é possível acrescentar mais adicionais.");
                 }
