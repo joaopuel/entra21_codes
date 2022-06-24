@@ -1,15 +1,16 @@
 package classes.lanches;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public abstract class Sanduiche extends Lanche{
     //Atributos
-    private final ArrayList<String> adicionais = new ArrayList<>();
+    private HashMap<String, Double> adicionais = new HashMap<>();
 
     //Métodos
-    public void adicionarAdicionais(String adicional){
-        this.adicionais.add(adicional);
+    public void adicionarAdicionais(String adicional, double valor){
+        this.adicionais.put(adicional, valor);
     }
 
     @Override
@@ -17,8 +18,8 @@ public abstract class Sanduiche extends Lanche{
         System.out.println("==" + this.getTipo() + "==");
         if (!this.adicionais.isEmpty()) {
             System.out.println("--ADICIONAIS--");
-            for (String adicional : this.getAdicionais()) {
-                System.out.println("+ " + adicional);
+            for (String adicional : this.getAdicionais().keySet()) {
+                System.out.printf("+ %s: R$%.2f\n", adicional, this.getAdicionais().get(adicional));
             }
             System.out.println("------------");
         }
@@ -31,12 +32,14 @@ public abstract class Sanduiche extends Lanche{
         if (adicional.equalsIgnoreCase("S")) {
             System.out.println("Escreva \"parar\" quando não quiser mais adicionais.");
             for (int i = 0; i < 10; i++) {
-                System.out.println("Insira adicional: ");
+                System.out.print("Insira adicional: ");
                 adicional = in.nextLine();
                 if (adicional.equalsIgnoreCase("parar")) {
                     break;
                 }
-                this.adicionarAdicionais(adicional);
+                System.out.print("Insira o valor do adicional: R$");
+                this.adicionarAdicionais(adicional, in.nextDouble());
+                in.nextLine();
                 if (i == 9) {
                     System.out.println("Não é possível acrescentar mais adicionais.");
                 }
@@ -45,7 +48,16 @@ public abstract class Sanduiche extends Lanche{
     }
 
     //Getters & Setters
-    public ArrayList<String> getAdicionais() {
+    public HashMap<String, Double> getAdicionais() {
         return this.adicionais;
+    }
+
+    @Override
+    public double getValor(){
+        double total=0;
+        for(String adicional : this.getAdicionais().keySet()){
+            total+=this.getAdicionais().get(adicional);
+        }
+        return super.getValor()+total;
     }
 }

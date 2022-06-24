@@ -6,11 +6,9 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         ex3();
     }
-
     public static void ex1(){
         HashMap<String, Double> produtos = new HashMap<>();
         produtos.put("maça", 1.6);
@@ -110,11 +108,11 @@ public class Main {
                     if(hashMap.isEmpty()) {
                         System.err.println("Não há veículos cadastrados!");
                     } else {
-                        System.out.println();
+                        System.out.println("\n** Catálogo **");
                         for (String key : hashMap.keySet()) {
-                            System.out.println("Marca: " + key);
+                            System.out.println("--- " + key.toUpperCase() + " ---");
                             for (Carro carro : hashMap.get(key)) {
-                                System.out.println(">> " + carro.getModelo() + " - R$" + carro.getValorVenda());
+                                System.out.printf(">> %s: R$%.2f\n", carro.getModelo().toUpperCase(), carro.getValorVenda());
                             }
                         }
                         System.out.println();
@@ -123,7 +121,9 @@ public class Main {
                 case 2:
                     System.out.print("Informe a marca: ");
                     String marca = in.nextLine().toLowerCase();
-                    ArrayList<Carro> lista = new ArrayList<>();
+                    if(!hashMap.containsKey(marca)) {
+                        hashMap.put(marca, new ArrayList<>());
+                    }
                     do {
                         Carro carro = new Carro();
                         System.out.print("Informe o modelo: ");
@@ -131,11 +131,10 @@ public class Main {
                         System.out.print("Informe o valor: ");
                         carro.setValorVenda(in.nextDouble());
                         in.nextLine();
-                        lista.add(carro);
+                        hashMap.get(marca).add(carro);
 
-                        System.out.println("Deseja cadastrar mais um carro? (S/N)");
+                        System.out.println("Deseja cadastrar mais um carro na marca " + marca + "? (S/N)");
                     } while (in.nextLine().equalsIgnoreCase("S"));
-                    hashMap.put(marca, lista);
                     break;
                 case 3:
                     if(hashMap.isEmpty()){
@@ -146,23 +145,24 @@ public class Main {
                         if(hashMap.containsKey(buscaMarca)){
                             System.out.print("Informe o modelo: ");
                             String buscaModelo = in.nextLine().toLowerCase();
-                            System.out.print("Informe o valor: ");
-                            double buscaValor = in.nextDouble();
-                            in.nextLine();
                             ArrayList<Carro> buscaLista = hashMap.get(buscaMarca);
-                            if(!buscaLista.isEmpty()){
-                                for (Carro carro : buscaLista){
-                                    if(carro.getModelo().equalsIgnoreCase(buscaModelo)){
+
+                            for (int i=0; i<buscaLista.size(); i++){
+                                if(buscaLista.get(i).getModelo().equalsIgnoreCase(buscaModelo)){
+                                    System.out.printf("%s - valor de venda: R$%.2f\n", buscaModelo.toUpperCase(), buscaLista.get(i).getValorVenda());
+                                    System.out.println("Deseja efetuar a venda? (S/N)");
+                                    if(in.nextLine().equalsIgnoreCase("S")) {
                                         System.out.println("Veículo " + buscaModelo + " da " + buscaMarca + " -> Vendido!");
-                                        buscaLista.remove(carro);
+                                        buscaLista.remove(i);
+                                        if(buscaLista.isEmpty()){
+                                            hashMap.remove(buscaMarca);
+                                        }
                                     }
+                                    break;
                                 }
-                                // System.err.println("Veículo '" + buscaCarro.getModelo() + "' de valor R$" + buscaCarro.getValorVenda() + " não encontrado!");
-                            }else {
-                                System.out.println("Não há veículos cadastrados para a marca " + buscaMarca);
                             }
                         }else {
-                            System.err.println("Marca '" + buscaMarca + "' não encontrada!");
+                            System.err.println("Não há veículos cadastrados para a marca " + buscaMarca.toUpperCase() + "!");
                         }
                     }
                     break;
