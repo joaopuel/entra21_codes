@@ -2,41 +2,49 @@ import java.util.ArrayList;
 
 public class Aviao implements MeioTransporte{
 
+    private static final String setRed =  "\u001B[31m";
+    private static final String setGreen =  "\u001B[32m";
+    private static final String setWhite = "\u001B[0m";
+
     //Atributos
     private ArrayList<AssentoVoo> assentos = new ArrayList<>();
 
     //Cosntrutor
     public Aviao(int linhasCadeirasLuxo, int linhasCadeirasEconomicas){
         int letraCodigo = 65;
+        int num = 1;
         for(int i=1; i<=(linhasCadeirasLuxo*4); i++){
             AssentoVoo assentoVoo = new AssentoVoo();
             assentoVoo.setClasse("Executiva");
             char letra = (char) letraCodigo;
-            if(i<10){
-                assentoVoo.setCodigo(letra + "0" + i);
+            if(num<10){
+                assentoVoo.setCodigo(letra + "0" + num);
             }else {
-                assentoVoo.setCodigo(letra + "" + i);
+                assentoVoo.setCodigo(letra + "" + num);
             }
             this.getAssentos().add(assentoVoo);
             letraCodigo++;
             if(i % 4 == 0){
                 letraCodigo = 65;
+                num++;
             }
         }
         letraCodigo = 65;
+        num = 1;
         for(int i=1; i<=(linhasCadeirasEconomicas*6); i++){
             AssentoVoo assentoVoo = new AssentoVoo();
             assentoVoo.setClasse("Econômica");
             char letra = (char) letraCodigo;
-            if(i<10){
-                assentoVoo.setCodigo(letra + "0" + i);
+            if(num<10){
+                assentoVoo.setCodigo(letra + "0" + num);
             }else {
-                assentoVoo.setCodigo(letra + "" + i);
+                assentoVoo.setCodigo(letra + "" + num);
             }
             this.getAssentos().add(assentoVoo);
             letraCodigo++;
             if(i % 6 == 0){
                 letraCodigo = 65;
+                num++;
             }
         }
         /*Pode ser também
@@ -68,25 +76,47 @@ public class Aviao implements MeioTransporte{
 
     @Override
     public void mostrarAssento() {
-        System.out.println("\t-- EXECUTIVA --");
+        System.out.println("\t\t\t\t-- EXECUTIVA --");
+        System.out.print("\t\t");
+        int pos = 0;
         for(int i=0; i<this.getAssentos().size(); i++){
             if(getAssentos().get(i).getClasse().equalsIgnoreCase("Econômica")){
+                pos = i;
                 break;
             }
-            System.out.print("\t" + this.getAssentos().get(i).getCodigo());
-            if((i+1) % 4 == 0){
-                System.out.println();
+
+            if(this.getAssentos().get(i).isOcupado()){
+                System.out.print(setRed);
+                System.out.print("[XXX]\t");
+            }else {
+                System.out.print(setGreen);
+                System.out.print("[" + this.getAssentos().get(i).getCodigo() + "]\t");
             }
+            System.out.print(setWhite);
+            if((i+1) % 4 == 0){
+                System.out.print("\n\t\t");
+            }else if((i+1) % 2 ==0){
+                System.out.print("||\t");
+            }
+
         }
-        System.out.println("\t-- ECONÔMICA --");
-        for(int i=0; i<this.getAssentos().size(); i++){
-            if(getAssentos().get(i).getClasse().equalsIgnoreCase("Executiva")){
-                continue;
+        System.out.println("\n\t\t\t\t-- ECONÔMICA --");
+        for(int i=pos; i<this.getAssentos().size(); i++){
+
+            if(this.getAssentos().get(i).isOcupado()){
+                System.out.print(setRed);
+                System.out.print("[XXX]\t");
+            }else {
+                System.out.print(setGreen);
+                System.out.print("[" + this.getAssentos().get(i).getCodigo() + "]\t");
             }
-            System.out.print("\t" + this.getAssentos().get(i).getCodigo());
-            if((i+1) % 4 == 0){
+            System.out.print(setWhite);
+            if((i-1) % 6 == 0){
                 System.out.println();
+            }else if((i-1) % 3 ==0){
+                System.out.print("||\t");
             }
+
         }
     }
 

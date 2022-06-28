@@ -13,9 +13,13 @@ public class Main {
         System.out.println("Ônibus:");
         onibus.mostrarAssento();
 
-        Aviao aviao = new Aviao(3, 4);
+        Aviao aviao = new Aviao(5, 4);
+        aviao.getAssento("B02").ocupar();
+        aviao.getAssento("D02").ocupar();
+        aviao.getAssento("C03", "Executiva").ocupar();
+        aviao.getAssento("B04", "Econômica").ocupar();
+        aviao.getAssento("E03", "Econômica").ocupar();
         System.out.println("Avião:");
         aviao.mostrarAssento();
-
     }
 }
