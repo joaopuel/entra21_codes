@@ -16,7 +16,5 @@ public class Main {
         for(Carta carta : baralho){
             System.out.println(carta.getValorCarta() + " de " + carta.getNaipe() + ": " + carta.getNaipe().getNaipe() + " " + carta.getValorCarta().getValor() + " " + carta.getNaipe().getNaipe());
         }
-
-
     }
 }
