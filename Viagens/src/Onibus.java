@@ -15,9 +15,9 @@ public class Onibus implements MeioTransporte{
         for(int i=1; i<=(linhasCadeiras*4); i++){
             AssentoOnibus assentoOnibus = new AssentoOnibus();
             if(i<10){
-                assentoOnibus.setLugar("0"+ i);
+                assentoOnibus.setLugar("0" + i);
             }else{
-                assentoOnibus.setLugar(""+ i);
+                assentoOnibus.setLugar("" + i);
             }
             this.getAssentos().add(assentoOnibus);
         }

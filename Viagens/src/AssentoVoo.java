@@ -2,7 +2,7 @@ public class AssentoVoo extends Assento{
 
     //Atributos
     private String codigo;
-    private String classe;
+    private ClasseAssentoVoo classe;
 
     //Getters & Setters
     public String getCodigo() {
@@ -13,11 +13,11 @@ public class AssentoVoo extends Assento{
         this.codigo = codigo;
     }
 
-    public String getClasse() {
+    public ClasseAssentoVoo getClasse() {
         return classe;
     }
 
-    public void setClasse(String classe) {
+    public void setClasse(ClasseAssentoVoo classe) {
         this.classe = classe;
     }
 }

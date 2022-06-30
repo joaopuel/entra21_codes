@@ -16,9 +16,9 @@ public class Main {
         Aviao aviao = new Aviao(5, 4);
         aviao.getAssento("B02").ocupar();
         aviao.getAssento("D02").ocupar();
-        aviao.getAssento("C03", "Executiva").ocupar();
-        aviao.getAssento("B04", "Econômica").ocupar();
-        aviao.getAssento("E03", "Econômica").ocupar();
+        aviao.getAssento("C03", ClasseAssentoVoo.LUXO).ocupar();
+        aviao.getAssento("B04", ClasseAssentoVoo.ECONOMICA).ocupar();
+        aviao.getAssento("E03", ClasseAssentoVoo.ECONOMICA).ocupar();
         System.out.println("Avião:");
         aviao.mostrarAssento();
     }
