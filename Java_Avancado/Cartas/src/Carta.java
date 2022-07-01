@@ -1,8 +1,10 @@
 public class Carta {
-
+    //Atributos
     private ValorCarta valorCarta;
     private Naipe naipe;
+    private int valorReal;
 
+    //Getters & Setters
     public ValorCarta getValorCarta() {
         return valorCarta;
     }
@@ -17,5 +19,13 @@ public class Carta {
 
     public void setNaipe(Naipe naipe) {
         this.naipe = naipe;
+    }
+
+    public int getValorReal() {
+        return valorReal;
+    }
+
+    public void setValorReal(int valorReal) {
+        this.valorReal = valorReal;
     }
 }

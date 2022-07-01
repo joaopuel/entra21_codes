@@ -1,3 +1,4 @@
+import classes.Menus.EMenu;
 import classes.avaliacao.*;
 import classes.guardados.*;
 import classes.itens.*;
@@ -10,40 +11,47 @@ public class Main {
     public static void main(String[] args) {
 
         Estante estante = new Estante(5);
+        boolean loop = true;
 
-        while(true) {
-            System.out.println("Escolha uma opção: ");
-            System.out.println("(1) - Adicionar item");
-            System.out.println("(2) - Buscar item");
-            System.out.println("(3) - Remover item");
-            System.out.println("(4) - Mostrar itens da estante");
-            System.out.println("(0) - Sair");
-            int opcao = in.nextInt();
-            in.nextLine();
+        while(loop) {
+            EMenu opcao = escolherOpcao();
 
             switch (opcao) {
-                case 1:
+                case ADICIONAR_ITEM:
                     adcionarItem(estante);
                     break;
-                case 2:
+                case BUSCAR_ITEM:
                     buscarERetornarItem(estante);
                     break;
-                case 3:
+                case REMOVER_ITEM:
                     removerItem(estante);
                     break;
-                case 4:
+                case MOSTRAR_ITENS:
                     mostrarItens(estante);
                     break;
-                case 0:
+                case SAIR:
+                    loop = false;
                     break;
                 default:
-                    System.err.println("Insira uma opção válida!");
-            }
-
-            if(opcao==0){
-                break;
+                    System.err.println("Opção não implementada!");
             }
         }
+    }
+
+    private static EMenu escolherOpcao() {
+        EMenu escolha = null;
+        while (escolha == null) {
+            System.out.println("Selecione uma opção");
+            for (EMenu menu : EMenu.values()) {
+                System.out.printf("(%d) - %s\n", menu.getValor(), menu.getDescricao());
+            }
+            escolha = EMenu.getByValorOpcao(in.nextInt());
+            in.nextLine();
+            if (escolha == null) {
+                System.err.println("Selecione uma opção válida!");
+            }
+        }
+        return escolha;
     }
 
     public static void removerItem(Estante estante){
@@ -115,7 +123,7 @@ public class Main {
                 cont++;
             }
         }
-        if(cont == item.getAvaliacoes().length){
+        if(cont == item.getAvaliacoes().size()){
             System.err.println("O número máximo de avaliações foi alcançado!");
         }else {
             item.avaliar();
@@ -141,7 +149,7 @@ public class Main {
     public static void mostrarItens(Estante estante){
         System.out.println("\nA estante pussuí " + estante.quantidadeItens() + " itens. ");
         for(int i=0; i < estante.getCapMaxima(); i++) {
-            Item item = estante.getItems()[i];
+            Item item = estante.getItens().get(i);
             if(item != null) {
                 System.out.print("[" + i + "] - " + item.getTitulo());
                 System.out.print("(" + item.getGenero() + ") ");

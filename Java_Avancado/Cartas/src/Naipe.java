@@ -4,7 +4,7 @@ public enum Naipe {
     OURO("♦"),
     ESPADAS("♠");
 
-    private String naipe;
+    private final String naipe;
     Naipe(String naipe){
         this.naipe = naipe;
     }

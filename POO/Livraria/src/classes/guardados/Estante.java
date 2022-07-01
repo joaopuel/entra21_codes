@@ -2,16 +2,17 @@ package classes.guardados;
 
 import classes.itens.Item;
 
+import java.util.ArrayList;
+
 public class Estante {
 
     //Atributos
     private int capMaxima;
-    private Item[] items;
+    private ArrayList<Item> itens = new ArrayList<>();
 
     //Construtor
     public Estante(int capacidadeMaxima){
-        setCapMaxima(capacidadeMaxima);
-        setItems(new Item[capacidadeMaxima]);
+        this.setCapMaxima(capacidadeMaxima);
     }
 
     //Métodos
@@ -20,38 +21,22 @@ public class Estante {
     }
 
     public int quantidadeItens(){
-        int cont = 0;
-        for(Item item : this.getItems()){
-            if(item != null){
-                cont++;
-            }
-        }
-        return cont;
+        return this.getItens().size();
     }
 
     public Item buscaItem(String titulo){
-        for(Item item : this.getItems()){
-            if(item != null && item.getTitulo().toLowerCase().contains(titulo.toLowerCase())){
-                return item;
-            }
-        }
-        return null;
+        return this.getItens().stream().filter(item -> item.getTitulo().equalsIgnoreCase(titulo)).findFirst().orElse(null);
     }
 
     public boolean adcionarItem(Item item){
-        for(int i=0; i < this.getCapMaxima(); i++){
-            if(this.getItems()[i] == null){
-                this.getItems()[i] = item;
-                return true;
-            }
+        if(!estanteCheia()){
+            return this.getItens().add(item); //Retorna true always
         }
         return false;
     }
 
     public Item removerItem(int posicao){
-        Item item = this.getItems()[posicao];
-        this.getItems()[posicao] = null;
-        return item;
+        return this.getItens().remove(posicao);
     }
 
     //Getters & Setters
@@ -63,11 +48,11 @@ public class Estante {
         this.capMaxima = capMaxima;
     }
 
-    public Item[] getItems() {
-        return items;
+    public ArrayList<Item> getItens() {
+        return itens;
     }
 
-    public void setItems(Item[] items) {
-        this.items = items;
+    public void setItems(ArrayList<Item> itens) {
+        this.itens = itens;
     }
 }
