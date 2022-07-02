@@ -1,15 +1,19 @@
 package classes.Menus;
 
-public enum EMenu {
-    SAIR(0, "Sair"),
+import classes.IMenu;
+
+import java.util.Arrays;
+
+public enum EMenu implements IMenu {
     ADICIONAR_ITEM(1, "Adicionar item"),
     BUSCAR_ITEM(2, "Buscar item"),
     REMOVER_ITEM(3, "Remover item"),
-    MOSTRAR_ITENS(4, "Mostrar itens da estante");
+    MOSTRAR_ITENS(4, "Mostrar itens da estante"),
+    SAIR(0, "Sair");
 
     //Atributos
-    private int valor;
-    private String descricao;
+    private final int valor;
+    private final String descricao;
 
     //Construtor
     EMenu(int valor, String descricao){
@@ -19,12 +23,7 @@ public enum EMenu {
 
     //Métodos
     public static EMenu getByValorOpcao(int escolha) {
-        for (EMenu e : EMenu.values()) {
-            if (e.getValor() == escolha) {
-                return e;
-            }
-        }
-        return null;
+        return Arrays.stream(EMenu.values()).filter(EMenu -> EMenu.getValor()==escolha).findFirst().orElse(null);
     }
 
     //Getters

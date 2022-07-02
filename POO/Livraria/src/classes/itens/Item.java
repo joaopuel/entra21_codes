@@ -31,6 +31,9 @@ public abstract class Item {
         return this.getAvaliacoes().stream().mapToDouble(Avaliacao::getRating).sum()/this.avaliacoes.size();
     }
 
+    public abstract void montarDetalhes(Scanner in);
+    public abstract void mostrarDetalhes();
+
     //Getters & Setters
     public String getTitulo() {
         return this.titulo;
