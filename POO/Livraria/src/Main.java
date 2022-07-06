@@ -3,6 +3,8 @@ import classes.Menus.*;
 import classes.avaliacao.*;
 import classes.guardados.*;
 import classes.itens.*;
+import org.jetbrains.annotations.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -31,6 +33,11 @@ public class Main {
         System.out.println("Programa Encerrado!");
     }
 
+    /**
+     * Retorna uma opção de menu de acordo com o que vier no parametro
+     * @param item = Inteiro referente ao valor da opção do menu
+     * @return A opção de menu escolhida ou null
+     */
     private static IMenu escolherOpcao(Item item) {
         IMenu escolha = null;
         while (escolha == null) {
