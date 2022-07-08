@@ -5,10 +5,11 @@ import classes.IMenu;
 import java.util.Arrays;
 
 public enum EMenu implements IMenu {
-    ADICIONAR_ITEM(1, "Adicionar item"),
-    BUSCAR_ITEM(2, "Buscar item"),
-    REMOVER_ITEM(3, "Remover item"),
+    ADICIONAR_ITEM(1, "Adicionar item a estante"),
+    BUSCAR_ITEM(2, "Buscar item da estante"),
+    REMOVER_ITEM(3, "Remover item na estante"),
     MOSTRAR_ITENS(4, "Mostrar itens da estante"),
+    ADICIONAR_ESTANTES(5, "Adicionar estante"),
     SAIR(0, "Sair");
 
     //Atributos

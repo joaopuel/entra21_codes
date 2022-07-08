@@ -4,9 +4,10 @@ import classes.IMenu;
 
 import java.util.Arrays;
 
-public enum EMenuBusca implements IMenu {
-    AVALIAR(1, "Avaliar"),
+public enum EMenuItem implements IMenu {
+    AVALIAR_ITEM(1, "Avaliar item"),
     VER_AVALIACOES(2, "Ver avaliações"),
+    MOSTRAR_DETALHES(3, "Mostrar detalhes"),
     VOLTAR(0, "Voltar");
 
     //Atributos
@@ -14,14 +15,14 @@ public enum EMenuBusca implements IMenu {
     private final String descricao;
 
     //Construtor
-    EMenuBusca(int valor, String descricao){
+    EMenuItem(int valor, String descricao){
         this.valor = valor;
         this.descricao = descricao;
     }
 
     //Métodos
-    public static EMenuBusca getByValorOpcao(int escolha){
-        return Arrays.stream(EMenuBusca.values()).filter(EMenuBusca -> EMenuBusca.getValor()==escolha).findFirst().orElse(null);
+    public static EMenuItem getByValorOpcao(int escolha){
+        return Arrays.stream(EMenuItem.values()).filter(EMenuItem -> EMenuItem.getValor()==escolha).findFirst().orElse(null);
     }
 
     //Getters

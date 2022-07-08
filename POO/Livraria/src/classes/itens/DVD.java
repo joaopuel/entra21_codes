@@ -12,21 +12,20 @@ public class DVD extends Item{
     //Métodos
     @Override
     public void montarDetalhes(Scanner in) {
-        System.out.print("Diretor: ");
+        System.out.println("Informe o diretor: ");
         this.setDiretor(in.nextLine());
-        System.out.print("Duração: ");
-        this.setDuracao(in.nextDouble());
-        in.nextLine();
-        System.out.print("Ano de lançamento: ");
+        System.out.println("Informe o ano de lançamento: ");
         this.setAnoLancamento(in.nextInt());
+        System.out.println("Informe a duração");
+        this.setDuracao(in.nextDouble());
         in.nextLine();
     }
 
     @Override
     public void mostrarDetalhes() {
-        System.out.print(": " + this.getAnoLancamento());
-        System.out.print(" - " + this.getDiretor());
-        System.out.print(" (Dur: " + this.getDuracao() + "h)");
+        System.out.print("Diretor: "+this.getDiretor());
+        System.out.print("Ano de lançamento: "+this.getAnoLancamento());
+        System.out.print("Duração: "+this.getDuracao());
     }
 
     //Getters & Setter

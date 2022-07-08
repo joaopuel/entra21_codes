@@ -6,7 +6,7 @@ import java.util.Scanner;
 public abstract class Lanche {
 
     //Atributos
-    private ArrayList<String> ingredientes = new ArrayList<>();
+    private final ArrayList<String> ingredientes = new ArrayList<>();
     private double valor;
     private String tipo;
 

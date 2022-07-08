@@ -2,15 +2,19 @@ package classes.pedido;
 
 import classes.lanches.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Pedido {
 
     //Atributos
     private final ArrayList<Lanche> lanches = new ArrayList<>();
+    private final LocalDateTime dataPedido = LocalDateTime.now();
 
     //Métodos
     public void imprimirComanda(){
+        System.out.println("Data do pedido: " + getDataPedido().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
         for(Lanche lanche : this.getLanches()){
             lanche.mostrarDetalhesComanda();
                 /*
@@ -42,7 +46,12 @@ public class Pedido {
         this.lanches.add(lanche);
     }
 
+    //Getters & Settes
     public ArrayList<Lanche> getLanches() {
         return this.lanches;
+    }
+
+    public LocalDateTime getDataPedido() {
+        return dataPedido;
     }
 }

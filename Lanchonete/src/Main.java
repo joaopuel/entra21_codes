@@ -1,6 +1,8 @@
 import classes.cliente.Cliente;
+import classes.cliente.EMenu;
 import classes.lanches.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -35,41 +37,23 @@ public class Main {
         XSalada sla = new XSalada();
         System.out.println(((Object)x).getClass().getSimpleName()); PARA DADOS DE TIPO PRIMITIVO
         System.out.println(sla.getClass().getSimpleName());*/
-
-        System.out.println("- MENU -");
-        System.out.println("(1) - X-Salada");
-        System.out.println("(2) - X-Burguer");
-        System.out.println("(3) - Misto Quente");
-        System.out.println("(4) - Hot Dog");
-        System.out.println("(5) - Mini Pizza");
-        System.out.println("(6) - Pizza");
         Lanche lanche = null;
-        int escolha;
-
         while (lanche == null) {
-            escolha = sc.nextInt();
-            sc.nextLine();
+            try {
+                EMenu escolha = escolherOpcao();
+            } catch (InputMismatchException e){
+                System.err.println("Escolha uma opção válida!");
+            } finally {
+                sc.nextLine();
+            }
             switch (escolha) {
-                case 1:
-                    lanche = new XSalada();
-                    break;
-                case 2:
-                    lanche = new XBurger();
-                    break;
-                case 3:
-                    lanche = new MistoQuente();
-                    break;
-                case 4:
-                    lanche = new HotDog();
-                    break;
-                case 5:
-                    lanche = new MiniPizza();
-                    break;
-                case 6:
-                    lanche = new Pizza();
-                    break;
-                default:
-                    System.err.println("Escolha uma opção válida!");
+                case XSALADA -> lanche = new XSalada();
+                case 2 -> lanche = new XBurger();
+                case 3 -> lanche = new MistoQuente();
+                case 4 -> lanche = new HotDog();
+                case 5 -> lanche = new MiniPizza();
+                case 6 -> lanche = new Pizza();
+                default -> System.err.println("Escolha uma opção válida!");
             }
         }
         lanche.mostrarDetalhesLanche(sc);
@@ -77,5 +61,12 @@ public class Main {
         lanche.setValor(sc.nextDouble());
         sc.nextLine();
         return lanche;
+    }
+
+    private static EMenu escolherOpcao() {
+        EMenu opcao = null;
+        while(opcao == null){
+            System.out.println("- MENU -");
+        }
     }
 }

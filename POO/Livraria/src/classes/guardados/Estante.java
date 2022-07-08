@@ -24,7 +24,7 @@ public class Estante {
         return this.getItens().size();
     }
 
-    public Item buscaItem(String titulo){
+    public Item buscarItem(String titulo){
         return this.getItens().stream().filter(item -> item.getTitulo().equalsIgnoreCase(titulo)).findFirst().orElse(null);
     }
 

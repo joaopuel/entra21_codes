@@ -1,13 +1,16 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Scanner;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        ex3();
+        ex5();
     }
     public static void ex1(){
         HashMap<String, Double> produtos = new HashMap<>();
@@ -168,6 +171,82 @@ public class Main {
                     break;
                 default:
                     System.err.println("Informe uma opção válida!");
+            }
+        }
+    }
+
+    public static void ex4(){
+//        LocalDateTime dateTime = LocalDateTime.now();
+//        System.out.println(dateTime.getYear());
+//        System.out.println(dateTime.getMonth() +  " - " + dateTime.getMonthValue());
+//        System.out.println(dateTime.getDayOfMonth());
+//        System.out.println(dateTime.getDayOfWeek());
+//        System.out.println(dateTime.getHour());
+//        System.out.println(dateTime.getMinute());
+//        System.out.println(dateTime.getSecond());
+//        System.out.println(dateTime.getNano());
+//        System.out.println(dateTime.getDayOfYear());
+//        System.out.println(dateTime.toLocalDate().isLeapYear());
+//        System.out.println(dateTime);
+
+//        LocalDateTime inicio = LocalDateTime.of(2022,7,7,18,15,0);
+//        LocalDateTime fim = LocalDateTime.of(2022,7,7,22,0,0);
+//        System.out.println(inicio);
+//        System.out.println(fim);
+//        LocalDateTime tempDateTime = LocalDateTime.from(inicio);
+//        int hours = (int) tempDateTime.until(fim, ChronoUnit.HOURS);
+//        tempDateTime = tempDateTime.plusHours(hours);
+//        int minutes = (int) tempDateTime.until(fim, ChronoUnit.MINUTES);
+//        tempDateTime = tempDateTime.plusMinutes(minutes);
+//        int seconds = (int)  tempDateTime.until(fim, ChronoUnit.SECONDS);
+//
+//        System.out.println(LocalTime.of(hours, minutes, seconds).minusMinutes(20));
+
+//        System.out.println(LocalDateTime.now().format(
+//                DateTimeFormatter.ISO_DATE
+//        ));
+//        System.out.println(LocalDateTime.now().format(
+//                DateTimeFormatter.ISO_TIME
+//        ));
+//        System.out.println(LocalDateTime.now().format(
+//                DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")
+//        ));
+//        System.out.println(LocalDateTime.now().format(
+//                DateTimeFormatter.ofPattern("dd/MM/yy HH 'horas', mm 'minutos e' ss 'segundos'") //Colocar aspas simples entre palavras
+//        ));
+
+        LocalDateTime inicio = LocalDateTime.of(2022,7,7,18,15,0);
+        LocalDateTime fim = LocalDateTime.of(2022,7,7,22,0,0);
+
+        Duration bet = Duration.between(inicio, fim).minusHours(1).minusMinutes(30);
+
+        System.out.println(bet);
+        System.out.printf("%d:%d:%d\n", bet.toHoursPart(), bet.toMinutesPart(), bet.toSecondsPart());
+    }
+
+    public static void ex5(){
+        while(true) {
+            try{
+                System.out.print("Informe um número: ");
+                System.out.println(in.nextInt());
+            } catch (InputMismatchException e){
+                System.out.println("Não é um número!");
+                in.nextLine();
+            } //catch (NoSuchElementException e2){
+//
+//            } finally {
+//
+//            }
+            break;
+        }
+
+        while(true) {
+            try{
+                System.out.print("Informe um número: ");
+                System.out.println(in.nextInt());
+            } catch (InputMismatchException e){
+                in.nextLine();
+                throw new RuntimeException("Não é um número!");
             }
         }
     }
