@@ -1,12 +1,10 @@
 package classes.lanches;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public abstract class Sanduiche extends Lanche{
     //Atributos
-    private HashMap<String, Double> adicionais = new HashMap<>();
+    private final HashMap<String, Double> adicionais = new HashMap<>();
 
     //Métodos
     public void adicionarAdicionais(String adicional, double valor){

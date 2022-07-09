@@ -1,5 +1,4 @@
-package classes.cliente;
-
+package classes.menus;
 import java.util.Arrays;
 
 public enum EMenu {
@@ -21,8 +20,8 @@ public enum EMenu {
     }
 
     //Métodos
-    public EMenu getByValorOpcao(int valorOpcao){
-        return Arrays.stream(EMenu.values()).filter(EMenu -> this.getValorOpcao() == valorOpcao).findFirst().orElse(null);
+    public static EMenu getByValorOpcao(int valorOpcao){
+        return Arrays.stream(EMenu.values()).filter(EMenu -> EMenu.getValorOpcao() == valorOpcao).findFirst().orElse(null);
     }
 
     //Getters

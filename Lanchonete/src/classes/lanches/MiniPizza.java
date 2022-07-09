@@ -1,5 +1,8 @@
 package classes.lanches;
 
+import classes.menus.EMenuPizza;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MiniPizza extends Lanche{
@@ -18,30 +21,28 @@ public class MiniPizza extends Lanche{
     }
 
     //Métodos
-    public void adicionarSaborEIngredientes(String sabor){
-        this.setSabor(sabor);
-        switch (sabor.toUpperCase()){
-            case "4 QUEIJOS":
+    public void adicionarSaborEIngredientes(EMenuPizza sabor){
+        this.setSabor(sabor.getDescricao());
+        switch (sabor) {
+            case QUATRO_QUEIJOS -> {
                 this.adicionarIngredientes("Catupiry");
                 this.adicionarIngredientes("Provolone");
                 this.adicionarIngredientes("Cheddar");
-                break;
-            case "CALABRESA":
-                this.adicionarIngredientes("Calabresa");
-                break;
-            case "FRANGO C/ CATUPIRY":
+            }
+            case CALABRESA -> this.adicionarIngredientes("Calabresa");
+            case FRANCO_COM_CATUPIRY -> {
                 this.adicionarIngredientes("Catupiry");
                 this.adicionarIngredientes("Frango");
-                break;
-            case "MARGUERITA":
+            }
+            case MARGUERITA -> {
                 this.adicionarIngredientes("Tomate");
                 this.adicionarIngredientes("Manjericão");
-                break;
-            case "PORTUGUESA":
+            }
+            case PORTUGUESA -> {
                 this.adicionarIngredientes("Presunto");
                 this.adicionarIngredientes("Cebola");
                 this.adicionarIngredientes("Ovo");
-                break;
+            }
         }
     }
 
@@ -55,34 +56,10 @@ public class MiniPizza extends Lanche{
 
     @Override
     public void mostrarDetalhesLanche(Scanner in){
-        System.out.println("Escolha o sabor:");
-        System.out.println("(1) - 4 Queijos");
-        System.out.println("(2) - Calabresa");
-        System.out.println("(3) - Frango c/ catupiry");
-        System.out.println("(4) - Marguerita");
-        System.out.println("(5) - Portuguesa");
-        int sabor = in.nextInt();
-        in.nextLine();
 
-        switch (sabor) {
-            case 1:
-                this.adicionarSaborEIngredientes("4 Queijos");
-                break;
-            case 2:
-                this.adicionarSaborEIngredientes("Calabresa");
-                break;
-            case 3:
-                this.adicionarSaborEIngredientes("Frango c/ catupiry");
-                break;
-            case 4:
-                this.adicionarSaborEIngredientes("Marguerita");
-                break;
-            case 5:
-                this.adicionarSaborEIngredientes("Portuguesa");
-                break;
-            default:
-                System.err.println("Escolha um sabor válido");
-        }
+        EMenuPizza sabor = escolherOpcao(in);
+
+        this.adicionarSaborEIngredientes(sabor);
 
         System.out.print("Borda recheada? (S/N)");
         String recheada = in.nextLine();
@@ -91,6 +68,25 @@ public class MiniPizza extends Lanche{
             System.out.print("Sabor da borda: ");
             this.setSaborBorda(in.nextLine());
         }
+    }
+
+    private EMenuPizza escolherOpcao(Scanner in) {
+        EMenuPizza opcao = null;
+        while(opcao == null) {
+            try {
+                System.out.println("Escolha o sabor:");
+                Arrays.stream(EMenuPizza.values()).forEach(EMenuPizza -> {
+                    System.out.printf("(%d) - %s\n", EMenuPizza.getValorOpcao(), EMenuPizza.getDescricao());
+                });
+                System.out.println("Selecione uma opção: ");
+                opcao = EMenuPizza.getByValorOpcao(in.nextInt());
+            }catch (RuntimeException e){
+                System.out.println("Selecione uma opção válida!");
+            }finally {
+                in.nextLine();
+            }
+        }
+        return opcao;
     }
 
     // GETTERS & SETTERS
