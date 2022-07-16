@@ -5,7 +5,7 @@ public enum EMenu {
     XSALADA(1, "X-Salada"),
     XBURGUER(2, "X-Burguer"),
     MISTO_QUENTE(3, "Misto Quente"),
-    HOT_DOG(4, "Mini Pizza"),
+    HOT_DOG(4, "Hot Dog"),
     MINIPIZZA(5, "Mini Pizza"),
     PIZZA(6, "Pizza");
 
