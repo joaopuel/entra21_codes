@@ -10,7 +10,7 @@ public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        ex5();
+        System.out.println(starOut(in.nextLine()));
     }
     public static void ex1(){
         HashMap<String, Double> produtos = new HashMap<>();
@@ -249,5 +249,25 @@ public class Main {
                 throw new RuntimeException("Não é um número!");
             }
         }
+    }
+
+    public static String starOut(String str) {
+        while(str.contains("*")){
+
+            int pos = str.indexOf('*');
+            if(str.length()!=1){
+                if(str.charAt(pos+1)!='*'){
+                    if(pos != str.length()-1){
+                        str = str.substring(0, pos-1) + str.substring(pos+2);
+                    }
+                    str = str.substring(0, pos-1);
+                }
+                str = str.substring(0, pos) + str.substring(pos+1);
+                continue;
+            }
+            return "";
+        }
+
+        return str;
     }
 }
