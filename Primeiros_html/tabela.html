@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- HTML inicial -->
+        <title> Tabela </title> <!-- Define o título da página -->
+        <meta charset="UTF-8">
+        <meta name="description" content = "Tabela"> <!-- Vai até 160 caracteres -->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Para auxiliar no mecanismo de busca -->
+        <meta nome="author" content="João P">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0"> <!-- Para o tamanho da página se ajustar a cada dispositivo diferente -->
+    </head>
+    <body>
+        <main>
+            <div id="tabelas">
+                <table border="2">
+                    <caption>Monthly Savings</caption>
+                    <thead> <!--define que a linha será do cabeçalho (Melhora para quem usa leitor de tela)-->
+                        <tr> <!--define uma linha (Table Row)-->
+                            <!-- define o cabeçalho (Table Head) -->
+                            <th>Month</th>
+                            <th>Savings</th>
+                        </tr>
+                    </thead>
+                    <tbody> <!--define que as linhas serão do corpo (Melhora para quem usa leitor de tela)-->
+                        <tr> <!--define uma linha (Table Row)-->
+                            <!-- define os dados (Table Data) -->
+                            <td>January</td>
+                            <td>$100</td>
+                        </tr>
+                        <tr>
+                            <td>February</td>
+                            <td>$80</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" style="text-align:center"><small>Sum: $180</small></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

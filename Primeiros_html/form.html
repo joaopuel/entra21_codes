@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- HTML inicial -->
+        <title> Formulário </title> <!-- Define o título da página -->
+        <meta charset="UTF-8">
+        <meta name="description" content = "Formulário"> <!-- Vai até 160 caracteres -->
+        <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- Para auxiliar no mecanismo de busca -->
+        <meta nome="author" content="João P">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0"> <!-- Para o tamanho da página se ajustar a cada dispositivo diferente -->
+    </head>
+    <body>
+        <main>
+            <div id="forms">
+                <form>
+                    <label for="txt">Texto: </label>
+                    <input type="text" name="" id="txt"/>
+                    <br>
+                    <label for="num">Número: </label>
+                    <input type="number" step=".01" id="num"/>
+                    <br>
+                    <label for="col">Cor: </label>
+                    <input type="color" id="col">
+                    <br>
+                    <label for="date">Data: </label>
+                    <input type="date" id="date">
+                    <br>
+                    <label for="pass">Senha: </label>
+                    <input type="password" id="pass">
+                    <p>
+                        <h3>Selecione a alternativa verdadeira:</h3>
+                        <input type="radio" name="radio" id="ra_1">
+                        <label for="ra_1">Alternativa 1</label>
+                        <br>
+                        <input type="radio" name="radio" id="ra_2">
+                        <label for="ra_2">Alternativa 2</label>
+                        <br>
+                        <input type="radio" name="radio" id="ra_3">
+                        <label for="ra_3">Alternativa 3</label>
+                    </p>
+                    <p>
+                        <h3>Selecione os itens desejados:</h3>
+                        <input type="checkbox" name="lista" id="ch_1">
+                        <label for="ch_1">Feijão</label>
+                        <br>
+                        <input type="checkbox" name="lista" id="ch_2">
+                        <label for="ch_2">Arroz</label>
+                        <br>
+                        <input type="checkbox" name="lista" id="ch_3">
+                        <label for="ch_3">Batata</label>
+                    </p>
+                    <input type="search">
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
