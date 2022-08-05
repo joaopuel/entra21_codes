@@ -1,0 +1,40 @@
+body {
+    background-color: #f1f1f1;
+}
+
+/* Maior prioridade na determinação de alterações acontece no estilo do elemento, quando o estilo é definido junto ao elemento*/
+
+p { /*Para alterar os parâmetros de um elemento - 6ª maior prioridade*/
+    color: red;
+    margin-top: 0;
+}
+
+#par-gr { /*Para alterar os parâmetros a partir de um identificador - 2ª maior priridade*/
+    color: green;
+    margin-top: 0;
+}
+
+/* Pseudoclasses - 3ª maior prioridade */
+/* Utilização de elemento com idetificador - 4ª maior prioridade */
+
+.white-txt { /*Para alterar os parâmetros de uma classe - 5ª maior prioridade*/
+    color: blue;
+    /* color: blue!important; -> Tarja importante serve para tornar a modificação obrigratória para todos da classe*/
+    margin-top: 0;
+}
+
+table{
+    border: 1px solid black;
+    width: 100%;
+    border-spacing: 0;
+}
+
+th {
+    text-align: start;
+    background-color: #b3b3b3;
+    padding: 8px 4px;
+}
+
+* { /* 7ª prioridade - última */
+    font-family: 'Poppins'; 
+}
