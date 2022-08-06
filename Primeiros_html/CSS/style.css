@@ -23,10 +23,46 @@ p { /*Para alterar os parâmetros de um elemento - 6ª maior prioridade*/
     margin-top: 0;
 }
 
+table.contained {
+    margin: 0 15%;
+    width: 70%;
+}
+
+#tab .col_1 {
+    width: 50%;
+}
+
+#tab .col_2 {
+    width: 40%;
+}
+
+#tab .col_3 {
+    width: 10%;
+    text-align:center;
+}
+
+.col_3 a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(52, 100,212);
+    padding: 4px 8px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 2px solid rgb(29, 54, 112);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.col_3 a:hover {
+    background-color: rgb(29, 54, 112);
+    border: 2px solid black;
+}
+
 table{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     border-spacing: 0;
+    border-collapse: collapse;
 }
 
 th {
@@ -35,6 +71,52 @@ th {
     padding: 8px 4px;
 }
 
+tr {
+    border-bottom: 1px solid #b3b3b3;
+}
+
+tfoot tr {
+    border-bottom: 0;
+}
+
+tfoot tr.sum td {
+    text-align: right;
+}
+
+small {
+    font-size: 12px;
+}
+
 * { /* 7ª prioridade - última */
     font-family: 'Poppins'; 
+}
+
+#lista_index{
+    text-align: center;
+    width: 15%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#lista_index li a{
+    text-decoration: none;
+    color: white;
+    background-color:  rgb(52, 100,212);
+    padding: 4px 8px;
+    margin: 2px 0;
+    display: block;
+    border: 2px solid rgb(29, 54, 112);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#lista_index li a:hover {
+    background-color: rgb(29, 54, 112);
+    border: 2px solid black;
+}
+
+#index-pg {
+    background-image: url("https://www.publicdomainpictures.net/pictures/50000/nahled/sunset-3-1368248669yMM.jpg");
+    background-size: cover;
 }
