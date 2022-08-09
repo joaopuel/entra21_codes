@@ -1,5 +1,6 @@
 body {
     background-color: #f1f1f1;
+    height: 100vh;
 }
 
 /* Maior prioridade na determinação de alterações acontece no estilo do elemento, quando o estilo é definido junto ao elemento*/
@@ -93,10 +94,14 @@ small {
 
 #lista_index{
     text-align: center;
-    width: 15%;
+    /* width: 15%; */
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
+}
+
+#lista_index li{
+    display: inline;
 }
 
 #lista_index li a{
@@ -104,11 +109,9 @@ small {
     color: white;
     background-color:  rgb(52, 100,212);
     padding: 4px 8px;
-    margin: 2px 0;
-    display: block;
+    display: inline;
     border: 2px solid rgb(29, 54, 112);
     border-radius: 4px;
-    margin-bottom: 10px;
 }
 
 #lista_index li a:hover {
@@ -117,6 +120,45 @@ small {
 }
 
 #index-pg {
-    background-image: url("https://www.publicdomainpictures.net/pictures/50000/nahled/sunset-3-1368248669yMM.jpg");
+    background-image: url("https://wallpaperbat.com/img/470954-qhd-wallpaper.jpg");
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+    /* html, body{
+        background-color: darkseagreen;
+    } */
+    #lista_index {
+        margin: 0 48px;
+    }
+    #lista_index li a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+#titulos h1, #titulos h2, #titulos h3, #titulos h4, #titulos h5, #titulos h6{
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Poppins'; 
+    display: block;
+    /* background-color: rgb(120, 186, 224); */
+    background-image: url("https://geekblog.com.br/wp-content/uploads/2021/06/wp5602341-2-1024x576.jpg");
+    background-position: top;
+    background-size: cover;
+    padding: 40px 0;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 45%;
+    box-shadow: -3px 4px 8px 5px rgba(0,0,0,0.38);
+}
+
+#forms form .label, #forms form .input, #forms form .alt {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
 }

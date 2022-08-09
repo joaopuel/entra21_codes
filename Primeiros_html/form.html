@@ -9,49 +9,52 @@
         <meta nome="author" content="João P">
         <meta name="viewport"
             content="width=device-width, initial-scale=1.0"> <!-- Para o tamanho da página se ajustar a cada dispositivo diferente -->
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <main>
+            <h2 style="text-align: center;"><b>Formulários</b></h2>
             <div id="forms">
                 <form>
-                    <label for="txt">Texto: </label>
-                    <input type="text" name="" id="txt"/>
-                    <br>
-                    <label for="num">Número: </label>
-                    <input type="number" step=".01" id="num"/>
-                    <br>
-                    <label for="col">Cor: </label>
-                    <input type="color" id="col">
-                    <br>
-                    <label for="date">Data: </label>
-                    <input type="date" id="date">
-                    <br>
-                    <label for="pass">Senha: </label>
-                    <input type="password" id="pass">
-                    <p>
-                        <h3>Selecione a alternativa verdadeira:</h3>
+                    <label class="label" for="txt">Texto:</label>
+                    <input class="input" type="text" name="" id="txt"/>
+                    <label class="label" for="num">Número: </label>
+                    <input class="input" type="number" step=".01" id="num"/>
+                    <label class="label" for="col">Cor: </label>
+                    <input class="input" type="color" id="col">
+                    <label class="label" for="date">Data: </label>
+                    <input class="input" type="date" id="date">
+                    <label class="label" for="pass">Senha: </label>
+                    <input class="input" type="password" id="pass">
+                    <h3 style="text-align: center;">Selecione a alternativa verdadeira:</h3>
+                    <div class="alt">
                         <input type="radio" name="radio" id="ra_1">
-                        <label for="ra_1">Alternativa 1</label>
-                        <br>
-                        <input type="radio" name="radio" id="ra_2">
-                        <label for="ra_2">Alternativa 2</label>
-                        <br>
-                        <input type="radio" name="radio" id="ra_3">
-                        <label for="ra_3">Alternativa 3</label>
-                    </p>
-                    <p>
-                        <h3>Selecione os itens desejados:</h3>
+                        <label for="ra_1">Alternativa 1</label> 
+                    </div>
+                    <div class="alt">
+                        <input class="alt_2" type="radio" name="radio" id="ra_2">
+                        <label class="alt_2" for="ra_2">Alternativa 2</label>
+                    </div>
+                    <div class="alt">
+                        <input class="alt_3" type="radio" name="radio" id="ra_3">
+                        <label class="alt_3" for="ra_3">Alternativa 3</label>
+                    </div>
+                    <h3 style="text-align: center;">Selecione os itens desejados:</h3>
+                    <div class="alt">
                         <input type="checkbox" name="lista" id="ch_1">
                         <label for="ch_1">Feijão</label>
-                        <br>
+                    </div>
+                    <div class="alt">
                         <input type="checkbox" name="lista" id="ch_2">
                         <label for="ch_2">Arroz</label>
-                        <br>
+                    </div>
+                    <div class="alt">
                         <input type="checkbox" name="lista" id="ch_3">
                         <label for="ch_3">Batata</label>
-                    </p>
-                    <input type="search">
-                    <input type="submit" value="Enviar">
+                    </div>
+                    <input class="input" type="search">
+                    <input class="input" type="submit" value="Enviar">
                 </form>
             </div>
         </main>
