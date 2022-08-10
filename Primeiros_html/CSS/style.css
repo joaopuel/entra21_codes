@@ -157,8 +157,55 @@ small {
     box-shadow: -3px 4px 8px 5px rgba(0,0,0,0.38);
 }
 
-#forms form .label, #forms form .input, #forms form .alt {
+#forms form .label, #forms form .input {
     display: block;
-    text-align: center;
+    text-align: start;
+}
+
+.question {
+    display: block;
     margin: 20px auto;
+    background-color: #ffffff;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: -3px 4px 8px 2px rgba(0,0,0,0.38);
+    padding: 0 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.input {
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1.5px solid black;
+    width: 70%;
+    /* background-color: rgb(193, 229, 250); */
+}
+
+.alt {
+    display: block;
+    margin: 20px auto;
+    text-align: start;
+}
+
+#form-pg .formul{
+    background-color: rgb(120, 186, 224);;
+}
+
+#titulo-form {
+    color: white;
+}
+
+.label {
+    font-size: 20px;
+}
+
+#text-cor {
+    display: inline-block;
+}
+
+#cor{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
 }

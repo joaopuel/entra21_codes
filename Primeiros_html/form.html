@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" id="form-pg" class="formul">
     <head>
         <!-- HTML inicial -->
         <title> Formulário </title> <!-- Define o título da página -->
@@ -12,49 +12,67 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body class="formul">
         <main>
-            <h2 style="text-align: center;"><b>Formulários</b></h2>
+            <h2 id="titulo-form" style="text-align: center;"><b>Formulários</b></h2>
             <div id="forms">
                 <form>
-                    <label class="label" for="txt">Texto:</label>
-                    <input class="input" type="text" name="" id="txt"/>
-                    <label class="label" for="num">Número: </label>
-                    <input class="input" type="number" step=".01" id="num"/>
-                    <label class="label" for="col">Cor: </label>
-                    <input class="input" type="color" id="col">
-                    <label class="label" for="date">Data: </label>
-                    <input class="input" type="date" id="date">
-                    <label class="label" for="pass">Senha: </label>
-                    <input class="input" type="password" id="pass">
-                    <h3 style="text-align: center;">Selecione a alternativa verdadeira:</h3>
-                    <div class="alt">
-                        <input type="radio" name="radio" id="ra_1">
-                        <label for="ra_1">Alternativa 1</label> 
+                    <div class="question">
+                        <label class="label" for="txt">Texto:</label>
+                        <input class="input" type="text" name="" id="txt"/>
                     </div>
-                    <div class="alt">
-                        <input class="alt_2" type="radio" name="radio" id="ra_2">
-                        <label class="alt_2" for="ra_2">Alternativa 2</label>
+                    <div class="question">
+                        <label class="label" for="num">Número: </label>
+                        <input class="input" type="number" step=".01" id="num"/>
                     </div>
-                    <div class="alt">
-                        <input class="alt_3" type="radio" name="radio" id="ra_3">
-                        <label class="alt_3" for="ra_3">Alternativa 3</label>
+                    <div class="question">
+                        <label id="text-cor" class="label" for="col">Cor: </label>
+                        <input id="cor" class="input" type="color" id="col">
                     </div>
-                    <h3 style="text-align: center;">Selecione os itens desejados:</h3>
-                    <div class="alt">
-                        <input type="checkbox" name="lista" id="ch_1">
-                        <label for="ch_1">Feijão</label>
+                    <div class="question">
+                        <label class="label" for="date">Data: </label>
+                        <input class="input" type="date" id="date">
                     </div>
-                    <div class="alt">
-                        <input type="checkbox" name="lista" id="ch_2">
-                        <label for="ch_2">Arroz</label>
+                    <div class="question">
+                        <label class="label" for="pass">Senha: </label>
+                        <input class="input" type="password" id="pass">
                     </div>
-                    <div class="alt">
-                        <input type="checkbox" name="lista" id="ch_3">
-                        <label for="ch_3">Batata</label>
+                    <div class="question">
+                        <h3 class="texto" style="text-align: start;">Selecione a alternativa verdadeira:</h3>
+                        <div class="alt">
+                            <input type="radio" name="radio" id="ra_1">
+                            <label for="ra_1">Alternativa 1</label> 
+                        </div>
+                        <div class="alt">
+                            <input type="radio" name="radio" id="ra_2">
+                            <label for="ra_2">Alternativa 2</label>
+                        </div>
+                        <div class="alt">
+                            <input type="radio" name="radio" id="ra_3">
+                            <label for="ra_3">Alternativa 3</label>
+                        </div>
                     </div>
-                    <input class="input" type="search">
-                    <input class="input" type="submit" value="Enviar">
+                    <div class="question">
+                        <h3 class="texto" style="text-align: start;">Selecione os itens desejados:</h3>
+                        <div class="alt">
+                            <input type="checkbox" name="lista" id="ch_1">
+                            <label for="ch_1">Feijão</label>
+                        </div>
+                        <div class="alt">
+                            <input type="checkbox" name="lista" id="ch_2">
+                            <label for="ch_2">Arroz</label>
+                        </div>
+                        <div class="alt">
+                            <input type="checkbox" name="lista" id="ch_3">
+                            <label for="ch_3">Batata</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <input class="input" type="search">
+                    </div>
+                    <div class="question">
+                        <input class="input" type="submit" value="Enviar">
+                    </div>
                 </form>
             </div>
         </main>
