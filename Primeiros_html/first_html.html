@@ -11,6 +11,26 @@
             content="width=device-width, initial-scale=1.0"> <!-- Para o tamanho da página se ajustar a cada dispositivo diferente -->
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript">
+
+            // var cont = 0;
+
+            // function onClick() {
+            //     cont++;
+            //     console.log(cont);
+            // }
+
+            function load(){
+                let guess = Math.floor(Math.random() * 11);
+                console.log(guess);
+                let userInput = -1;
+                while(guess != userInput) {
+                    userInput = prompt("Take a whild guess: ");
+                }
+            }
+
+            window.onload = load;
+        </script>
     </head>
 
     <body id="index-pg">
@@ -25,7 +45,9 @@
                 <li><a href="tabela.html">Tabelas</a></li>
                 <li><a href="form.html">Formulários</a></li>
                 <li><a href="iframe.html">Iframes</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
             </ul>
+            <!-- <button onclick="onClick()">Contar</button> -->
             <!-- <img src="https://www.publicdomainpictures.net/pictures/50000/nahled/sunset-3-1368248669yMM.jpg"> -->
         </aside>
          <!--
