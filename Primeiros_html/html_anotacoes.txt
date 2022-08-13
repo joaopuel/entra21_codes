@@ -1,0 +1,68 @@
+> HTML - Corpo de página web (Esqueleto) -> Linguagem de marcação
+> CSS - Estilo de página web (Pele) -> Linguagem de programação
+> JavaScript - Lógica de página web (Órgãos e tecidos) -> Linguagem de programação
+
+
+> Para comentar <!-- COMENTÁRIO -->
+
+> Tags
+  - base -> serve para direcionar para outros links
+  - noscript -> serve para avisar o usuário que o site pode não funcionar corretamente sem JavaScript
+  - link -> para utilizar recursos de outros sites
+  - script -> para usar a programação em JavaScript
+
+> Alterar o tamanho de imagens
+  - px - pixels
+  - % - porcentagem de modificação
+  - em - referente ao tamanho da imagem
+
+> Existem mais de uma forma de passar valores de margem:
+  - margin: 8px; -> O elemento vai ter uma margem de 8px em todas as direções
+  - margin: 0 8px; -> O elemento vai ter 0px nas direções do eixo y e 8px nas direções do eixo x
+  - margin: 0 8px 4px 1px -> A margem superior vai ser 0, a margem direita vai ser 8px, margem inferior 4px e margem esquerda 1px
+  - Definir valores para cada margem usando as tags específicas: margin-top, margin-right, margin-bottom, margin-left
+
+> Tipos de display:
+  - display: none; -> Para que determinado elemeneto não apareça na página para o usuário
+  - display: inline; -> Para que o elemento seja tratado como texto e é alinhado junto com o ele
+  - display: block; -> O elemento é mostrado como bloco fora do texto
+  - display: inline-block; -> O elemento é encaixado no meio do texto, mas possui espaçamento diferente
+
+> CSS normalize:
+  - Retira algumas configurações padrões que atrapalham na hora de trabalhar com o CSS e torna a página mais agradável, como altera o fundo para cinza claro em vez de branco, altera a fonte, etc.
+
+> Regras CSS:
+  - div { } -> Por elemento
+  - #id { } -> Por id
+  - .classe { } -> Por classe
+  - * { } -> Universal
+  - p :first-child { } -> Por pseudo-classe
+  - input [type="text"] { } -> Por atributo
+
+> Elemento alt= da imagem mostra texto quando a imagem não puder ser mostrada na página
+
+> Tipos de elementos JavaScript
+  - const -> Define constante
+  - var -> Define variável que permanece ocupando a memória mesmo depois de lido o código do script
+  - let -> Define variável que libera a memória mesmo depois de lido o código do script
+
+> Tipagem
+  - Forte
+  - Fraca
+  - Estática
+  - Dinâmica
+  - Inferência
+
+> Funções para converter o tipo de dado
+  - parse
+     -- Int()
+  - Number()
+  - String()
+
+> Comparações em JavaScript
+  - == e != para comparar os valores das variáveis
+  - === e !== para comparar os valores e os tipos das variáveis
+
+> Funções em JavaScript
+  - 
+  - Boolean()
