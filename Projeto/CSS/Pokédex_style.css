@@ -1,0 +1,160 @@
+html, body{
+    background-image: url("https://ih1.redbubble.net/image.236021949.7749/flat,750x,075,f-pad,750x1000,f8f8f8.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100%;
+}
+
+*{
+    font-family: 'Poppins';
+}
+
+.title {
+    margin: 10px auto;
+    padding: 0;
+    text-align: center;
+}
+
+.pokeball{
+    object-position: 0 10px;
+    display: inline;
+}
+
+.pokeball :hover{
+    animation: shake 1.25s;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    20% { transform: translate(-10px, 0) rotate(-20deg); }
+    30% { transform: translate(10px, 0) rotate(20deg); }
+    50% { transform: translate(-10px, 0) rotate(-10deg); }
+    60% { transform: translate(10px, 0) rotate(10deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+}
+
+.pg-title {
+    display: inline;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.card {
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    width: 10.08cm;
+    height: 14.08cm;
+    margin: 20px auto;
+    padding-top: 5px;
+    box-shadow: -3px 4px 8px 5px rgba(0,0,0,0.38);
+}
+
+.header, .descript{
+    margin: 5px;
+    border-radius: 8px;
+    color: #f6f6f6;
+    text-align: justify;
+}
+
+.header {
+    background-color: #a8a8a8d2;
+    padding: 5px;
+}
+
+.name {
+    display: inline-block;
+    width: 82%;
+    font-weight: bold;
+    font-size: large;
+}
+
+.hp {
+    color: #f6f6f6;
+    display: inline-block;
+    background-color: rgb(31, 31, 31);
+    border-radius: 100%;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    width: 50px;
+}
+
+ .card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.desc_head {
+    padding: 5px;
+    background-color: rgb(41, 41, 41);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.desc_text {
+    padding: 5px;
+    background-color: #a8a8a87a;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.type {
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    display: inline;
+    border-radius: 8px;
+}
+
+.eletric {
+    background-image: url("https://phoneky.co.uk/thumbs/screensavers/down/original/lightning_zckxrkoj.gif");
+}
+
+.card .eletric {
+    background-image: none;
+    background-color: rgb(238, 224, 28);
+}
+
+.grass{
+    background-image: url("https://64.media.tumblr.com/8e5a27aab45fe51d663bdfaa6eadabc6/a46c15b91b49db85-1b/s400x600/8493814cdf9754858be09f008c2287613825f5ab.gifv");
+}
+
+.card .grass{
+    background-image: none;
+    background-color: rgb(86, 207, 39);
+}
+
+.card .poison{
+    background-image: none;
+    background-color: rgb(116, 0, 170);
+}
+
+.fire {
+    background-image: url("https://media4.giphy.com/media/Nhfd9oF0pYvn2/giphy.gif?cid=790b76113a339fd20597df82ff94697d5f459bcabb7fff13&rid=giphy.gif&ct=g");
+    background-position-y: bottom;
+    background-size: 478.5px 720px;
+}
+
+.card .fire {
+    background-image: none;
+    background-color: rgb(211, 80, 5);
+}
+
+.water {
+    background-image: url("https://i.pinimg.com/originals/a3/bd/2d/a3bd2d363d3f9e382beed3837e0c15c2.gif");
+}
+
+.card .water {
+    background-image: none;
+    background-color: rgb(5, 77, 211);
+}
