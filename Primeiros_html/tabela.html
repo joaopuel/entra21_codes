@@ -11,22 +11,66 @@
             content="width=device-width, initial-scale=1.0"> <!-- Para o tamanho da página se ajustar a cada dispositivo diferente -->
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript">
+
+            var lanches = [];
+
+            function onAdd(){
+                let nome =  prompt("Informe o nome do lanche: ");
+                let valor = prompt(`Informe o valor de ${nome}`);
+                let lanche = {
+                    "nome": nome,
+                    "valor": Number(valor)
+                }
+                
+                lanches.push(lanche);
+                tableLoad();
+            }
+
+            function tableLoad(){
+                // let tr = document.createElement("tr");
+                // let td_1 = document.createElement("td");
+                // td_1.textContent = lanche.nome;
+                // let td_2 = document.createElement("td");
+                // td_2.textContent = lanche.valor;
+                // tr.appendChild(td_1);
+                // tr.appendChild(td_2);
+                // document.getElementById("tab").getElementsByTagName("tbody")[0].appendChild(tr);
+
+                let tableBody = document.getElementById("tab").getElementsByTagName("tbody")[0];
+                tableBody.innerHTML = lanches.map((lanche) => {
+                    return `
+                        <tr>
+                            <td class="col_1">${lanche.nome}</td>
+                            <td class="col_2">${lanche.valor}</td>
+                            <td class="col_3 style="display: inline-block;">
+                                <button class="btn btn-warning" onclick="onChange()">Alterar</button>
+                                <button class="btn btn-danger" onclick="onDelete()">Excluir</button>
+                            <td>
+                        </tr>
+                    `;
+                }).join("");
+            }
+        </script>
     </head>
     <body>
         <main>
             <div id="tabelas">
                 <table id="tab" class="contained"> <!--border="2"-->
-                    <caption><h3>Monthly Savings</h3></caption>
+                    <caption><h3 style="color: #f1f1f1;">Vendinha UwU</h3></caption>
                     <thead> <!--define que a linha será do cabeçalho (Melhora para quem usa leitor de tela)-->
                         <tr> <!--define uma linha (Table Row)-->
                             <!-- define o cabeçalho (Table Head) -->
-                            <th class="col_1">Month</th>
-                            <th colspan="2" class="col_2">Savings</th>
+                            <th class="col_1">Nome</th>
+                            <th colspan="2" class="col_2">Valor</th>
                         </tr>
                     </thead>
-                    <tbody> <!--define que as linhas serão do corpo (Melhora para quem usa leitor de tela)-->
-                        <tr> <!--define uma linha (Table Row)-->
-                            <!-- define os dados (Table Data) -->
+                    <tbody>
+
+                    </tbody>
+                    <!-- <tbody> --define que as linhas serão do corpo (Melhora para quem usa leitor de tela)--
+                        <tr> --define uma linha (Table Row)--
+                            -- define os dados (Table Data) --
                             <td class="col_1">January</td>
                             <td class="col_2">$100</td>
                             <td class="col_3"><a href="#">View</a></td>
@@ -36,10 +80,13 @@
                             <td class="col_2">$80</td>
                             <td class="col_3"><a href="#">View</a></td>
                         </tr>
-                    </tbody>
+                    </tbody> -->
                     <tfoot>
                         <tr class="sum">
-                            <td colspan="3"><small>Sum: $180</small></td> <!--style="text-align:center"-->
+                            <td colspan="3">
+                                <!-- <small>Sum: $180</small> -->
+                                <button class="btn btn-sucess" onclick="onAdd()">Adicionar</button>
+                            </td> <!--style="text-align:center"-->
                         </tr>
                     </tfoot>
                 </table>

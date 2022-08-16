@@ -1,5 +1,5 @@
 body {
-    background-color: #f1f1f1;
+    background-color: #363636;
     height: 100vh;
 }
 
@@ -34,11 +34,11 @@ table.contained {
 }
 
 #tab .col_2 {
-    width: 40%;
+    width: 30%;
 }
 
 #tab .col_3 {
-    width: 10%;
+    width: 20%;
     text-align:center;
 }
 
@@ -64,16 +64,18 @@ table{
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+    color: #f1f1f1;
 }
 
 th {
     text-align: start;
-    background-color: #b3b3b3;
+    background-color: rgb(100, 128, 220);
     padding: 8px 4px;
+    color: #f1f1f1;
 }
 
 tr {
-    border-bottom: 1px solid #b3b3b3;
+    border-bottom: 1px solid rgb(100, 128, 220);
 }
 
 tfoot tr {
@@ -208,4 +210,50 @@ small {
     display: inline-block;
     width: 70px;
     height: 70px;
+}
+
+.btn {
+    border: 0;
+    background-color: transparent;
+    padding: 8px 16px;
+    cursor:  pointer;
+    border-radius: 8px;
+    color: #f1f1f1;
+}
+
+.btn.btn-sucess{
+    background-color: rgb(75, 87, 191);
+}
+
+.btn.btn-sucess:hover{
+    background-color: rgb(100, 128, 220);
+}
+
+.btn.btn-sucess:active{
+    background-color: rgb(54, 72, 153);
+}
+
+.btn-warning {
+    color: black;
+    background-color: rgb(228,209,62);
+}
+
+.btn-warning:hover {
+    background-color: rgb(247,227,77);
+}
+
+.btn-warning:active {
+    background-color: rgb(179,163,43);
+}
+
+.btn-danger {
+    background-color: rgb(228,62,62);
+}
+
+.btn-danger:hover {
+    background-color: rgb(247,77,77);
+}
+
+.btn-danger:active {
+    background-color: rgb(179,43,43);
 }
