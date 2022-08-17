@@ -221,15 +221,15 @@ small {
     color: #f1f1f1;
 }
 
-.btn.btn-sucess{
+.btn.btn-success{
     background-color: rgb(75, 87, 191);
 }
 
-.btn.btn-sucess:hover{
+.btn.btn-success:hover{
     background-color: rgb(100, 128, 220);
 }
 
-.btn.btn-sucess:active{
+.btn.btn-success:active{
     background-color: rgb(54, 72, 153);
 }
 

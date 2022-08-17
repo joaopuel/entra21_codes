@@ -1,0 +1,12 @@
+Tipos de Renderização
+> Server Side
+ - JSP/JSF -> Muito obsoleto
+ - PHP -> Obsoleto
+ - DJANGO -> Meio obsoleto
+ - Node -> Bastante atualizado
+
+> Client Side
+ - HTML/CSS/JavaScript
+ - TypeScript
+ - React/Angular
+ - AngularJS

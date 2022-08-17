@@ -14,16 +14,19 @@
         <script type="text/javascript">
 
             var lanches = [];
+            var id_seq = 1;
 
             function onAdd(){
                 let nome =  prompt("Informe o nome do lanche: ");
                 let valor = prompt(`Informe o valor de ${nome}`);
                 let lanche = {
+                    "id": id_seq,
                     "nome": nome,
                     "valor": Number(valor)
                 }
                 
                 lanches.push(lanche);
+                id_seq++;
                 tableLoad();
             }
 
@@ -41,15 +44,63 @@
                 tableBody.innerHTML = lanches.map((lanche) => {
                     return `
                         <tr>
-                            <td class="col_1">${lanche.nome}</td>
-                            <td class="col_2">${lanche.valor}</td>
-                            <td class="col_3 style="display: inline-block;">
-                                <button class="btn btn-warning" onclick="onChange()">Alterar</button>
-                                <button class="btn btn-danger" onclick="onDelete()">Excluir</button>
+                            <td class="col_1" id="lanche-${lanche.id}-nome">${lanche.nome}</td>
+                            <td class="col_2" id="lanche-${lanche.id}-valor">${lanche.valor}</td>
+                            <td class="col_3 edit-cell" id="lanche-${lanche.id}-crud">
+                                <button class="btn btn-warning" onclick="onAlter(${lanche.id})">Alterar</button>
+                                <button class="btn btn-danger" onclick="onDelete(${lanche.id})">Excluir</button>
+                            <td>
+                            <td class="col_3 edit-cell" style="display: none;" id="lanche-${lanche.id}-save">
+                                <button class="btn btn-success" onclick="onSave(${lanche.id})">Salvar</button>
+                                <button class="btn btn-danger" onclick="onCancel(${lanche.id})">Cancelar</button>
                             <td>
                         </tr>
                     `;
                 }).join("");
+            }
+
+            function onCancel(id) {
+                let lanche = lanches.find(lanche => lanche.id === id);
+                document.getElementById(`lanche-${lanche.id}-nome`).innerHTML = `${lanche.nome}`;
+                document.getElementById(`lanche-${lanche.id}-valor`).innerHTML = `${lanche.valor}`;
+                document.getElementById(`lanche-${lanche.id}-crud`).style = "";
+                document.getElementById(`lanche-${lanche.id}-save`).style = "display: none;";
+            }
+
+            function onSave(id) {
+                let lanche = lanches.find(lanche => lanche.id === id);
+                lanche.nome = document.getElementById(`input-lanche-${lanche.id}-nome`).value;
+                document.getElementById(`lanche-${lanche.id}-nome`).innerHTML = `${lanche.nome}`;
+                lanche.valor = document.getElementById(`input-lanche-${lanche.id}-valor`).value;
+                document.getElementById(`lanche-${lanche.id}-valor`).innerHTML = `${lanche.valor}`;
+                document.getElementById(`lanche-${lanche.id}-crud`).style = "";
+                document.getElementById(`lanche-${lanche.id}-save`).style = "display: none;";
+            }
+
+            function onAlter(id) {
+                let lanche = lanches.find(lanche => lanche.id === id);
+                // let value = prompt(`Informe o novo valor de ${lanche.nome}: `);
+                // if(value !== null) {
+                //     lanche.valor = Number(value);
+                //     tableLoad();
+                // }
+                document.getElementById(`lanche-${lanche.id}-nome`).innerHTML = `
+                    <input class="col_1" type="text" id="input-lanche-${lanche.id}-nome" value="${lanche.nome}"/>
+                `;
+                document.getElementById(`lanche-${lanche.id}-valor`).innerHTML = `
+                    <input class="col_2" type="number" id="input-lanche-${lanche.id}-valor" value="${lanche.valor}"/>
+                `;
+                document.getElementById(`lanche-${lanche.id}-crud`).style = "display: none;";
+                document.getElementById(`lanche-${lanche.id}-save`).style = "";
+            }
+
+            function onDelete(id) {
+                let lanche = lanches.find(lanche => lanche.id === id);
+                let userConf = confirm(`Deseja realmente excluir ${lanche.nome}?`);
+                if(userConf) {
+                    lanches = lanches.filter(lanche => lanche.id !== id);
+                    tableLoad();
+                }
             }
         </script>
     </head>
@@ -85,7 +136,7 @@
                         <tr class="sum">
                             <td colspan="3">
                                 <!-- <small>Sum: $180</small> -->
-                                <button class="btn btn-sucess" onclick="onAdd()">Adicionar</button>
+                                <button class="btn btn-success" onclick="onAdd()">Adicionar</button>
                             </td> <!--style="text-align:center"-->
                         </tr>
                     </tfoot>
