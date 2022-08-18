@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Pokédex</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Encontre seus Pokémons favoritos nesta Pokédex">
+        <meta name="keyword" content="Pokémon, Pokédex, Pikachu">
+        <meta name="author" content="João P">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link rel="stylesheet" href="../CSS/Pokédex_styles.css">
+        <script>
+
+            var array = ["pikachu", "bulbasaur", "charmander", "squirtle"]
+            var index = 0;
+
+            function onPrevious(){
+                document.getElementById(array[index]).style = "display: none;"
+                if(index === 0){
+                    document.getElementById(array[(array.length-1)]).style = "";
+                    index = array.length-1;
+                }else{
+                    document.getElementById(array[(index-1)]).style = "";
+                    index -= 1;
+                }
+            }
+
+            function onNext(){
+                document.getElementById(array[index]).style = "display: none;"
+                if(index === (array.length-1)){
+                    document.getElementById(array[0]).style = "";
+                    index = 0;
+                }else{
+                    document.getElementById(array[index+1]).style = "";
+                    index += 1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <head>
+            <div class="title">
+                <div class="pokeball">
+                    <img class="poke" src="https://static.wikia.nocookie.net/espokemon/images/0/02/Pok%C3%A9_Ball_%28Ilustraci%C3%B3n%29.png/revision/latest/top-crop/width/360/height/360?cb=20090125150654" width="80px" height="80px">
+                </div>
+                <div class="pg-title">Poké-Cards</div>
+            </div>
+        </head>
+        <main class="main">
+            <button class="btn" onclick="onPrevious()"><</button>
+            <ul>
+                <li id="pikachu" class="card eletric">
+                    <div class="header">
+                        <div class="name">Pikachu</div>
+                        <div class="hp">HP 60</div>
+                    </div>
+                    <div class="pok_img">
+                        <img src="https://1.bp.blogspot.com/-RF3_CSO_QCQ/YNCjh_m4AvI/AAAAAAAATjI/cWklZmGhP6Q-C_at1juOV3wfa6dJldQfQCLcBGAsYHQ/s1032/stat-pikachu2.png" width="268.8px" height="309.6px">
+                    </div>
+                    <div class="footer">
+                        <div class="desc_head">Descrição</div>
+                        <div class="desc_text">Pikachu que pode gerar eletricidade poderosa tem bolsas nas bochechas que são extra macias e super elásticas.</div>
+                        <ul class="pok_types">
+                            <li class="type eletric">Elétrico</li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="bulbasaur" class="card grass" style="display: none;">
+                    <div class="header">
+                        <div class="name">Bulbasauro</div>
+                        <div class="hp">HP 70</div>
+                    </div>
+                    <div class="pok_img">
+                        <img src="https://unite.pokemon.com/images/home/play/bulbasaur.png" width="359.7px" height="232.1px">
+                    </div>
+                    <div class="footer">
+                        <div class="desc_head">Descrição</div>
+                        <div class="desc_text">Há uma semente de planta nas costas desde o dia em que este Pokémon nasce. A semente cresce lentamente.</div>
+                        <ul class="pok_types">
+                            <li class="type grass">Planta</li>
+                            <li class="type poison">Venenoso</li>
+                        </ul>
+                    </div>
+                </li>
+            </li>
+            <li id="charmander" class="card fire" style="display: none;">
+                <div class="header">
+                    <div class="name">Charmander</div>
+                    <div class="hp">HP 70</div>
+                </div>
+                <div class="pok_img">
+                    <img src="https://unite.pokemon.com/images/home/play/charmander.png" width="200.4px" height="235.2px">
+                </div>
+                <div class="footer">
+                    <div class="desc_head">Descrição</div>
+                    <div class="desc_text">Tem preferência por coisas quentes. Quando chove, dizem que o vapor jorra da ponta de sua cauda.</div>
+                    <ul class="pok_types">
+                        <li class="type fire">Fogo</li>
+                    </ul>
+                </div>
+            </li>
+            <li id="squirtle" class="card water" style="display: none;">
+                <div class="header">
+                    <div class="name">Squirtle</div>
+                    <div class="hp">HP 70</div>
+                </div>
+                <div class="pok_img">
+                    <img src="https://static.wikia.nocookie.net/cartoonsunitethegame/images/e/e3/Squirtle.png/revision/latest?cb=20181218160400" width="262.5px" height="296.1px">
+                </div>
+                <div class="footer">
+                    <div class="desc_head">Descrição</div>
+                    <div class="desc_text">Quando retrai seu longo pescoço em sua concha, esguicha água com força vigorosa.</div>
+                    <ul class="pok_types">
+                        <li class="type water">Água</li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+            <button class="btn" onclick="onNext()">></button>
+        </main>
+    </body>
+</html>
