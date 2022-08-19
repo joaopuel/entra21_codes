@@ -64,5 +64,7 @@
   - === e !== para comparar os valores e os tipos das variáveis
 
 > Funções em JavaScript
-  - 
-  - Boolean()
+  - Função nomeada -> funções mais utilizadas
+  - Funções anônimas -> funções geralmente usadas em callback, usadas geralmente logo após outra função
+  - Arrowfuntion -> parecidas com lamb de java, "forma mais bonita de escrever funções anônimas"
+  - Funções autoinvocadas -> { () => { alet("oi"); } }();
