@@ -9,17 +9,14 @@ html, body{
 
 *{
     font-family: 'Poppins';
+    text-shadow: 1px 1.1px 2px black;
 }
 
 .title {
-    margin: 10px auto;
-    padding: 0;
-    text-align: center;
-}
-
-.pokeball{
-    object-position: 0 10px;
-    display: inline;
+    color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pokeball :hover{
@@ -36,9 +33,32 @@ html, body{
 }
 
 .pg-title {
-    display: inline;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: bold;
+    text-shadow: 1px 1.1px 5px black;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+}
+
+.btn{
+    margin: 1cm;
+    border: 2px solid #7c7c7c;
+    background-color: #f6f6f6;
+    border-radius: 100%;
+    width: 1cm;
+    height: 1cm;
+    font-size: large;
+    text-align: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: #b1b1b1;
 }
 
 ul{
@@ -47,50 +67,52 @@ ul{
 }
 
 .card {
-    padding: 0;
+    padding: 5px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
     width: 10.08cm;
     height: 14.08cm;
-    margin: 20px auto;
-    padding-top: 5px;
     box-shadow: -3px 4px 8px 5px rgba(0,0,0,0.38);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column wrap;
 }
 
-.header, .descript{
-    margin: 5px;
+.header, .footer{
+    margin: 0;
     border-radius: 8px;
     color: #f6f6f6;
     text-align: justify;
 }
 
 .header {
-    background-color: #a8a8a8d2;
+    background-color: #a8a8a87a;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    width: 9.81542cm;
 }
 
 .name {
-    display: inline-block;
-    width: 82%;
     font-weight: bold;
     font-size: large;
 }
 
 .hp {
     color: #f6f6f6;
-    display: inline-block;
     background-color: rgb(31, 31, 31);
     border-radius: 100%;
     font-weight: bold;
     text-align: center;
     padding: 3px;
-    width: 50px;
 }
 
- .card img {
-    display: block;
-    margin: 0 auto;
+.footer{
+    display: flex;
+    flex-direction: column;
 }
 
 .desc_head {
@@ -107,12 +129,20 @@ ul{
     border-bottom-right-radius: 8px;
 }
 
+.pok_types{
+    margin: 0;
+    margin-top: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+
 .type {
-    margin: 5px;
+    margin: 0;
+    margin-left: 5px;
     font-weight: bold;
     text-align: center;
     padding: 3px;
-    display: inline;
     border-radius: 8px;
 }
 
