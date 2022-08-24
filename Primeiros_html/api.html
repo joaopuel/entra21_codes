@@ -21,7 +21,7 @@
     <button onclick="getGameList()">Get Dog</button>
 </body>
 </html> -->
-
+<!-- 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -45,5 +45,56 @@
 </head>
 <body onload="loadCharlist()">
     <ul id="charlist"></ul>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function requestImg(text) {
+            let url = text == null || text == "" ?
+                "https://cataas.com/cat?json=true" :
+                `https://cataas.com/cat/says/${text}?json=true`;
+            let req = new XMLHttpRequest();
+            req.open("GET", url, true);
+            req.onload = () => {
+                let img = document.getElementsByTagName("img")[0];
+                img.src = "https://cataas.com" + JSON.parse(req.responseText).url;
+                console.log(req.responseText);
+                img.onload = () => {
+                    Array.from(document.getElementsByTagName("button")).forEach( (button) => button.disabled = false);
+                    img.style = "border: 3px dotted white; border-radius: 8px;";
+                }
+            }
+            Array.from(document.getElementsByTagName("button")).forEach( (button) => button.disabled = true);
+            req.send(null);
+        }
+
+        function loadImg() {
+            requestImg();
+        }
+
+        function loadImgWithTexT() {
+            let text = prompt("Digite o texto a ser inserido na imagem: ");
+            if(text != null){
+                requestImg(text);
+            }
+        }
+    </script>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <img src="" />
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
+        <button style="border-radius: 8px; border: 2px dashed rgb(197, 197, 197); background-color: rgb(114, 9, 155); color: #f6f6f6; margin: 10px;" onclick="loadImg()">OwO</button>
+        <button style="border-radius: 8px; border: 2px dashed rgb(197, 197, 197); background-color: rgb(114, 9, 155); color: #f6f6f6;" onclick="loadImgWithTexT()">OwO + Txt</button>
+    </div>
 </body>
 </html>
