@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volta Ao Mundo</title>
+    <script type="text/javascript">
+        var v_array = ["venezuela", "vaticano"];
+        var o_array = ["olinda", "ottawa"];
+        var l_array = ["lisboa", "londres"];
+        var t_array = ["taiwan", "tailandia"];
+        var a_array = ["argentina", "alemanha"];
+
+        var word = [v_array, o_array, l_array, t_array, a_array];
+
+        var index = 0;
+        var wrong = 0;
+
+        function onCheck() {
+            let location = document.getElementById("input_place").value;
+            location = location.toLowerCase();
+            let firs_letter = location.charAt(0);
+
+            if( (firs_letter === 'v' && word[index] === v_array) || 
+                (firs_letter === 'o' && word[index] === o_array) || 
+                (firs_letter === 'l'&& word[index] === l_array) || 
+                (firs_letter === 't' && word[index] === t_array) || 
+                (firs_letter === 'a' && word[index] === a_array)){
+
+                if(!word[index].includes(location)){
+                    word[index].push(location);
+                }
+
+                alert(`Você pode ir para ${location}`);
+                index += 1;
+                wrong = 0;
+            } else{
+                wrong += 1;
+                if (wrong === 3){
+                    let ramdom = Math.floor(Math.random() * (word[index].length))
+                    alert(`Você poderia ir para ${word[index][ramdom]}. Chute a próxima viagem.`);
+                    index += 1;
+                    wrong = 0;
+                } else{
+                    alert(`Não é possível ir para ${location}`);
+                }
+            }
+
+            if(index === 5){
+                index = 0;
+            }
+            console.log(word);
+        }
+
+        document.onreadystatechange = () => {
+            if(document.readyState == 'complete') {
+                document.getElementById("input_place").addEventListener("keydown", (e) => {
+                    if(e.key === "Enter" || e.keyValue === 13) {
+                        onCheck();
+                    }
+                });
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h2>Volta Ao Mundo</h2>
+    <p></p>
+    <input id="input_place" type="text" placeholder="Digite um lugar">
+    <button onclick="onCheck()">Jogar</button>
+</body>
+</html>
