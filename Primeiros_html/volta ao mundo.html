@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volta Ao Mundo</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/volta ao mundo style.css">
     <script type="text/javascript">
         var v_array = ["venezuela", "vaticano"];
         var o_array = ["olinda", "ottawa"];
@@ -19,6 +21,7 @@
 
         function onCheck() {
             let location = document.getElementById("input_place").value;
+            document.getElementById("input_place").value = "";
             location = location.toLowerCase();
             let firs_letter = location.charAt(0);
 
@@ -32,18 +35,22 @@
                     word[index].push(location);
                 }
 
-                alert(`Você pode ir para ${location}`);
+                document.getElementById("p_volta").innerHTML = `Correto! Você pode ir para ${location}!`;
+                document.getElementById("p_volta").style = "color: green;"
+            
                 index += 1;
                 wrong = 0;
             } else{
                 wrong += 1;
                 if (wrong === 3){
                     let ramdom = Math.floor(Math.random() * (word[index].length))
-                    alert(`Você poderia ir para ${word[index][ramdom]}. Chute a próxima viagem.`);
+                    document.getElementById("p_volta").innerHTML = `Você poderia ir para ${word[index][ramdom]}. Chute a próxima viagem.`;
+                    document.getElementById("p_volta").style = "color: blue;"
                     index += 1;
                     wrong = 0;
                 } else{
-                    alert(`Não é possível ir para ${location}`);
+                    document.getElementById("p_volta").innerHTML = `Não é possível ir para ${location}`;
+                    document.getElementById("p_volta").style = "color: red;"
                 }
             }
 
@@ -69,8 +76,11 @@
 </head>
 <body>
     <h2>Volta Ao Mundo</h2>
-    <p></p>
-    <input id="input_place" type="text" placeholder="Digite um lugar">
-    <button onclick="onCheck()">Jogar</button>
+    <img src="Imagens/mundo_2.png" alt="">
+    <p id="p_volta"></p>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <input id="input_place" type="text" placeholder="Digite um lugar">
+        <button class="btn" onclick="onCheck()">Jogar</button>
+    </div>
 </body>
 </html>
