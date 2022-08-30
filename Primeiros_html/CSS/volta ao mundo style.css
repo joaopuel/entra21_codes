@@ -1,20 +1,26 @@
 * {
-    text-align: center;
     font-family: 'Poppins';
 }
 
+
 html, body {
-    height: 100%;
-    margin: 0;
     background-color: rgb(133, 193, 197);
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    flex-flow: column wrap;
+    background-image: url("https://greensavers.sapo.pt/wp-content/uploads/2021/01/nuvens.jpg");
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    height: 100%;
     /* background-image: url("C:/Users/joaop/Desktop/Entra21 - JAVA/entra21_codes/Primeiros_html/Imagens/mundo_2.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat; */
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #p_volta, h2{
@@ -45,4 +51,17 @@ h2{
 
 .btn:hover {
     background-color: rgb(0, 0, 155);
+}
+
+#mundo:hover {
+    animation: spin 1.25s;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
