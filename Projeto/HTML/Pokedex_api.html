@@ -35,27 +35,31 @@
 
             function loadPoklist() {
                 let req = new XMLHttpRequest();
-                req.open("GET", "", false);
+                req.open("GET", "https://pokeapi.co/api/v2/pokemon/ditto", true);
+
+                req.onload = () => {
+                    console.log(JSON.parse(req.responseText).sprites.front_default);
+                    // document.getElementById("pok_list").innerHTML = `
+                    //     <li id="${JSON.parse(req.responseText).id}" class="card ${JSON.parse(req.responseText).types[0].type.name}">
+                    //         <div class="header">
+                    //             <div class="name">${JSON.parse(req.responseText).name}</div>
+                    //             <div class="hp">HP 60</div>
+                    //         </div>
+                    //         <div class="pok_img">
+                    //             <img src="${JSON.parse(req.responseText).name}" width="268.8px" height="309.6px">
+                    //         </div>
+                    //         <div class="footer">
+                    //             <div class="desc_head">Descrição</div>
+                    //             <div class="desc_text">Pikachu que pode gerar eletricidade poderosa tem bolsas nas bochechas que são extra macias e super elásticas.</div>
+                    //             <ul class="pok_types">
+                    //                 <li class="type eletric">Elétrico</li>
+                    //             </ul>
+                    //         </div>
+                    //     </li>
+                    // `;
+                }
+                
                 req.send(null);
-                document.getElementById("pok_list").innerHTML = 
-                    JSON.parse(req.responseText).map( (pok) => {return `
-                    <li id="${pok.id}" class="card ${pok.types[0]}">
-                    <div class="header">
-                        <div class="name">${pok.name}</div>
-                        <div class="hp">HP ${pok.hp}</div>
-                    </div>
-                    <div class="pok_img">
-                        <img src="${pok.images.larger}" width="268.8px" height="309.6px">
-                    </div>
-                    <div class="footer">
-                        <div class="desc_head">Descrição</div>
-                        <div class="desc_text">Pikachu que pode gerar eletricidade poderosa tem bolsas nas bochechas que são extra macias e super elásticas.</div>
-                        <ul class="pok_types">
-                            <li class="type eletric">Elétrico</li>
-                        </ul>
-                    </div>
-                </li>
-                `}).join("");
             }
         </script>
     </head>
