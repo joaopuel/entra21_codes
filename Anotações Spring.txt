@@ -1,0 +1,21 @@
+>Requisições http
+ - GET -> Buscar informações (Read)
+ - POST -> Criar registros (Create)
+ - PUT -> Atualizar (necessário identificador) e Criar (caso não seja passado um identificador) registros (Update) 
+ - PATCH -> Atualizar (necessário identificador, caso contrário não faz nada) (Update)
+ - DELETE -> Apagar registros (Delete)
+
+>Nomenclaturas de Classes Java (Padrão MVC)
+ - RestController
+ - Service
+ - Entity
+ - Repository
+ - DTO (Data Transfer Object)
+ - UseEase
+
+> spring.jpa.hibernate.ddl-auto=
+ - spring.jpa.hibernate.ddl-auto=none -> Não altera o banco de dados
+ - spring.jpa.hibernate.ddl-auto=create -> Cria tabelas do banco de dados se não existirem
+ - spring.jpa.hibernate.ddl-auto=create-drop -> Cria tabelas do banco de dados e depois apaga
+
+>

@@ -3,7 +3,7 @@ package com.entra21.primeiroprojetospring.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/teste")
+//@RequestMapping("/teste")
 public class HelloWorldRestController {
 
     @GetMapping("/")
