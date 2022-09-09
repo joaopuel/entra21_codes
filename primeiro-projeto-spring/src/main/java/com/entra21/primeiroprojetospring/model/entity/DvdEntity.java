@@ -25,4 +25,7 @@ public class DvdEntity extends ItemEntity{
     @Column(name = "ano_lancamento")
     private Integer anoLancamento;
 
+    public String getType(){
+        return "DVD";
+    }
 }

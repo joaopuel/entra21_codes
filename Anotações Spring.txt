@@ -18,4 +18,19 @@
  - spring.jpa.hibernate.ddl-auto=create -> Cria tabelas do banco de dados se não existirem
  - spring.jpa.hibernate.ddl-auto=create-drop -> Cria tabelas do banco de dados e depois apaga
 
->
+> Padrão MVC
+  - Model
+    * Entity -> Mapeia os dados e as relações do banco de dados
+    * DTO -> Camada de segurança. Serve para resumir informações da entidade.
+  - View
+    * Repository ->
+    * Service ->
+    * Component
+    * Use cause
+  - Controller
+    * Controller
+    * RestController
+    * WebService
+
+> @Autowired
+  - 

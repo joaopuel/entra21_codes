@@ -2,10 +2,12 @@ package com.entra21.primeiroprojetospring.view.service;
 
 import com.entra21.primeiroprojetospring.model.dto.ItemDTO;
 import com.entra21.primeiroprojetospring.model.entity.DvdEntity;
+import com.entra21.primeiroprojetospring.model.entity.ItemEntity;
 import com.entra21.primeiroprojetospring.view.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,18 +17,19 @@ public class ItemService {
     @Autowired
     private ItemRepository itemRepository;
 
-    public List<ItemDTO> getAll() {
-        return itemRepository.findAll().stream().map( it -> {
+    public List<ItemDTO> getAll(Long idGenero) {
+        List<ItemEntity> list;
+        if(idGenero != null){
+            list = itemRepository.findAllByGeneros_Id(idGenero);
+        } else {
+            list = itemRepository.findAll();
+        }
+        return list.stream().map( it -> {
             ItemDTO dto = new ItemDTO();
             dto.setId(it.getId());
             dto.setTitulo(it.getTitulo());
             dto.setEmprestado(it.getEmprestado());
-            if(it instanceof DvdEntity){
-                dto.setTipo("DVD");
-            } else {
-                dto.setTipo("Livro");
-            }
-//            dto.setTipo(it.getClass().getName());
+            dto.setTipo(it.getType());
             return dto;
                 }).collect(Collectors.toList());
     }

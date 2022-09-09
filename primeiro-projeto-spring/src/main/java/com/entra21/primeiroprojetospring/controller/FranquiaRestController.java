@@ -16,6 +16,11 @@ public class FranquiaRestController {
     @Autowired
     private FranquiaService franquiaService;
 
+//    Sem o Autowired é necessário definir o construtor
+//    public FranquiaRestController (FranquiaService franquiaService) {
+//        this.franquiaService = franquiaService;
+//    }
+
 //    @GetMapping
 //    public List<FranquiaEntity> getFranquias(){
 //        return franquiaRepository.findAll();

@@ -26,4 +26,8 @@ public class LivroEntity extends ItemEntity{
 
     @Column(name = "edicao")
     private Integer edicao;
+
+    public String getType(){
+        return "Livro";
+    }
 }
