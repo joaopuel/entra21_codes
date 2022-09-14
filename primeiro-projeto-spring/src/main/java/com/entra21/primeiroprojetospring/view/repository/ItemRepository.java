@@ -10,4 +10,5 @@ import java.util.List;
 public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
     public List<ItemEntity> findAllByGeneros_Id(Long idGenero);
     public List<ItemEntity> findAllByGeneros_Nome(String nome);
+    public List<ItemEntity> findAllByAvaliacoes_Id(Long idAvaliacao);
 }

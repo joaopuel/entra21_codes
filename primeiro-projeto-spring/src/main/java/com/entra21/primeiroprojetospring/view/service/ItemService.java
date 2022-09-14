@@ -1,5 +1,6 @@
 package com.entra21.primeiroprojetospring.view.service;
 
+import com.entra21.primeiroprojetospring.model.dto.AvaliacaoDTO;
 import com.entra21.primeiroprojetospring.model.dto.ItemDTO;
 import com.entra21.primeiroprojetospring.model.entity.DvdEntity;
 import com.entra21.primeiroprojetospring.model.entity.ItemEntity;
@@ -20,7 +21,7 @@ public class ItemService {
     public List<ItemDTO> getAll(Long idGenero) {
         List<ItemEntity> list;
         if(idGenero != null){
-            list = itemRepository.findAllByGeneros_Id(idGenero);
+            list = itemRepository.findAllByAvaliacoes_Id(idGenero);
         } else {
             list = itemRepository.findAll();
         }
@@ -30,6 +31,14 @@ public class ItemService {
             dto.setTitulo(it.getTitulo());
             dto.setEmprestado(it.getEmprestado());
             dto.setTipo(it.getType());
+            dto.setAvaliacoes(it.getAvaliacoes().stream().map(av -> {
+                AvaliacaoDTO avaliacaoDTO = new AvaliacaoDTO();
+                avaliacaoDTO.setId(av.getId());
+                avaliacaoDTO.setComentario(av.getComentario());
+                avaliacaoDTO.setNomeAvaliador(av.getNomeAvaliador());
+                avaliacaoDTO.setNota(av.getNota());
+                return avaliacaoDTO;
+            }).collect(Collectors.toSet()));
             return dto;
                 }).collect(Collectors.toList());
     }

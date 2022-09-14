@@ -14,7 +14,7 @@ public class ItemDTO {
 //    private Double valorLocacao;
     private Boolean emprestado;
 //    private FranquiaEntity franquia;
-//    private Set<AvaliacaoEntity> avaliacoes;
+    private Set<AvaliacaoDTO> avaliacoes;
 //    private Set<GeneroEntity> generos;
     private String tipo;
 }
