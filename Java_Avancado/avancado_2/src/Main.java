@@ -10,7 +10,8 @@ public class Main {
 
     public static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println(starOut(in.nextLine()));
+//        System.out.println(starOut(in.nextLine()));
+        ex4();
     }
     public static void ex1(){
         HashMap<String, Double> produtos = new HashMap<>();
@@ -217,6 +218,8 @@ public class Main {
 
         LocalDateTime inicio = LocalDateTime.of(2022,7,7,18,15,0);
         LocalDateTime fim = LocalDateTime.of(2022,7,7,22,0,0);
+
+        System.out.println(inicio.toLocalDate().equals(fim.toLocalDate()));
 
         Duration bet = Duration.between(inicio, fim).minusHours(1).minusMinutes(30);
 
