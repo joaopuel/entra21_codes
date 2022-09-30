@@ -1,0 +1,10 @@
+npm install --save-dev typescript
+npx tsc --init
+
+> in tscconfig
+
+"rootDir": "src" -> criar pasta src
+"outDir": "build" -> não precisa criar pasta
+
+> Criar projeto React com TypeScript
+npx create-react-app sandbox-ts --template typescript
