@@ -32,4 +32,12 @@
       display: none;
       visibility: hidden;
     }
+
+    /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
   }

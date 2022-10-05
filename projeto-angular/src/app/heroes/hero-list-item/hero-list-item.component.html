@@ -1,0 +1,23 @@
+<div (click)="showID()">
+    <div *ngIf="hero.deceased" style="margin-right: 2px; color: grey; display: inline;">✟</div>
+<!-- <h3 style="display: inline; margin-right: 2px;" [ngStyle]="
+    {
+        'color': (hero.deceased) ? 'grey' : 'black',
+        'font-style': (hero.deceased) ? 'italic' : 'normal'
+    }
+" >{{hero.heroName}}</h3> -->
+<h3 style="display: inline; margin-right: 2px;" [ngStyle]=" 
+    (hero.deceased) ? {
+        'color': 'grey',
+        'font-style': 'italic'
+    } : {}
+" >{{hero.heroName}}</h3>
+    <!-- <small *ngIf="hero.universe === 'Marvel'" style="color: red;">({{hero.universe}})</small>
+    <small *ngIf="hero.universe === 'DC'" style="color: blue;">({{hero.universe}})</small> -->
+
+    <small [ngStyle]="
+        {'color': (hero.universe === 'DC') ? 'blue' : 'red'}
+    ">({{hero.universe}})</small>
+
+    <img src="{{hero.photo}}" style="display: block;" width="10%" height="10%">
+</div>
