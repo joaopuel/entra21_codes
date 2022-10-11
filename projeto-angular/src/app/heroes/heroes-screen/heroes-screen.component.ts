@@ -16,6 +16,8 @@ export type Hero = {
 })
 export class HeroesScreenComponent implements OnInit {
 
+  visibility = "none";
+
   heroes: Hero[] = [
     {
       id: 1,
