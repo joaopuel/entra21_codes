@@ -1,4 +1,4 @@
-<div (click)="showID()">
+<div>
     <div *ngIf="hero.deceased" style="margin-right: 2px; color: grey; display: inline;">✟</div>
 <!-- <h3 style="display: inline; margin-right: 2px;" [ngStyle]="
     {
@@ -18,6 +18,18 @@
     <small [ngStyle]="
         {'color': (hero.universe === 'DC') ? 'blue' : 'red'}
     ">({{hero.universe}})</small>
+
+    <small (click)="showID()"
+        style="cursor: pointer;"
+        title="Ver identidade secreta">👁️</small>
+    
+    <small (click)="onEdit()"
+        style="cursor: pointer;"
+        title="Editar">✏️</small>
+
+    <small (click)="onDelete()"
+        style="cursor: pointer;"
+        title="Excluir">🗑️</small>
 
     <img src="{{hero.photo}}" style="display: block;" width="10%" height="10%">
 </div>

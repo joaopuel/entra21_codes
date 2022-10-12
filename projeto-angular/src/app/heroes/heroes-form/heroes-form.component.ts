@@ -1,16 +1,22 @@
 import { formatCurrency } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from "@angular/forms";
+import { Hero } from '../heroes-screen/heroes-screen.component';
 
 @Component({
   selector: 'app-heroes-form',
   templateUrl: './heroes-form.component.html',
   styleUrls: ['./heroes-form.component.css']
 })
-export class HeroesFormComponent {
+export class HeroesFormComponent implements OnChanges{
 
-  @Input() visibility!: string; 
-  @Output() visibilityChange = new EventEmitter<string>();
+  @Input() editingHero? : Hero | null | undefined;
+  @Output() insertChange = new EventEmitter<boolean>();
+  @Output() heroSave = new EventEmitter<Hero>();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.heroForm.patchValue(changes["editingHero"].currentValue);
+  }
 
   // heroForm =  new FormGroup({
   //   name: new FormControl('', Validators.required),
@@ -18,13 +24,22 @@ export class HeroesFormComponent {
   // });
 
   heroForm =  this.fb.group({
-    name: ['', Validators.required],
-    secretIdentity: ['']
+    id: [null],
+    heroName: ['', Validators.required],
+    secretIdentity: [''],
+    universe: ['', Validators.required],
+    deceased: [false],
+    photo: ['', Validators.required],
   });
 
-  displayForm = () => {
-    this.visibility = "";
-    this.visibilityChange.emit(this.visibility);
+  cancel = () => {
+    this.insertChange.emit(false);
+  }
+
+  onSubmit = () => {
+    this.heroSave.emit(this.heroForm.value as Hero);
+    this.heroForm.reset();
+    this.cancel();
   }
 
   constructor(private fb: FormBuilder){

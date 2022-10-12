@@ -3,6 +3,10 @@
     flex: 1;
   }
 
+  * {
+    background-color: rgb(27, 27, 27);
+  }
+
   .card {
     all: unset;
     border-radius: 4px;

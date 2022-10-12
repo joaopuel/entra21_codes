@@ -9,6 +9,7 @@ import { HeroesModule } from './heroes/heroes.module';
 import { SizerComponent } from './sizer/sizer.component';
 import { FavoriteColorComponent } from './favorite-color/favorite-color.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { LivrariaModule } from './livraria/livraria.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     FavoriteColorComponent
   ],
   imports: [
-    BrowserModule, HeroesModule, ReactiveFormsModule
+    BrowserModule, HeroesModule, ReactiveFormsModule, LivrariaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

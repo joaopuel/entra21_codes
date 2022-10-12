@@ -14,3 +14,6 @@ npm run ng g c heroes-screen --module=heroes.module
 npm run ng g c heroes/hero-list-item
 
 
+> Property binding []
+> Event binding ()
+
