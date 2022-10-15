@@ -1,3 +1,4 @@
+git push --set-upstream origin joao
 git stash
 git pull origin main
 git stash pop
